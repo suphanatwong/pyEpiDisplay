@@ -1,1 +1,3 @@
 # pyEpiDisplay
+
+Cat Kim
