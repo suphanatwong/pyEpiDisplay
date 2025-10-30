@@ -13,3 +13,6 @@ Henry is an epidemiology M.S. student with no prior background in R but with lot
 John is junior Epidemiologist. He want to analyze epidemiological data.
 He want to basic function, easy, short. He has some experiences in Excel and basic data anaylsis. Just starting use Python.
 >>>>>>> b7a71c71ccb14bb1766159a666e8e523fac289e8
+
+Ben is a public health graduate student. He has a time-sensitive project epidemiology visualization which requires PyEpidisplay R library. He is familiar with Python but not R language. He needs to quickly learn how to use the PyEpidisplay library in Python to complete his project on time.
+
