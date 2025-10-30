@@ -8,7 +8,7 @@ Henry is an epidemiology M.S. student with no prior background in R but with lot
 
 John is junior Epidemiologist. He want to analyze epidemiological data.
 He want to basic function, easy, short. He has some experiences in Excel and basic data anaylsis. Just starting use Python.
-=======
+
 Sophie is a researcher who is used to work in R but her current project is all in python.
 She needs a package that will incorporate all the functions she used for this project in R 
 but without her having to do all the programming herself. She would like something very easy to use and very detailed documentation
