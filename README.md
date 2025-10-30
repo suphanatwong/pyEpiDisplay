@@ -1,4 +1,3 @@
 # pyEpiDisplay
 
-Suphanat Wongsanuphat BIME
-
+Cat Kim
