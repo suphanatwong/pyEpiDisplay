@@ -7,3 +7,6 @@ Henry is an epidemiology M.S. student with no prior background in R but with lot
 
 John is junior Epidemiologist. He want to analyze epidemiological data.
 He want to basic function, easy, short. He has some experiences in Excel and basic data anaylsis. Just starting use Python.
+
+
+Boss is senior Biostatistician. He is an expert and need to review the code of epidemiological data analysis conducted by his team members who use pyEpidisplay. He want quick way to review it. He is expert in R and Python but nevery use epiDisplay.
