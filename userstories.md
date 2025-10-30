@@ -1,2 +1,3 @@
-Sam is a novice epidemiologist. Sam wants to learn R since
-he's used to using Python. He wants to learn a easy way. Sam doesn't have much technical skills and values easy translation.
+James is a software developer and wants to use the functions for the R. But he doesn't care too much about the epi data,
+moreso he just wants to add some of the functions in converting R to python in his packages. Additionally, He doesn't
+have much time to add it.
