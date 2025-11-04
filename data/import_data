@@ -1,0 +1,15 @@
+import rpy2.robjects as robjects
+from rpy2.robjects import r
+from rpy2.robjects import pandas2ri
+
+# Enable automatic conversion between R and pandas
+pandas2ri.activate()
+
+# Load RData file
+r['load']('mydata.RData')  # this loads R variables into R environment
+
+# Suppose the RData contains a variable called "df"
+df = r['df']  # gets the R data frame
+df = pandas2ri.rpy2py(df)  # convert to pandas DataFrame
+
+print(df.head())
