@@ -18,4 +18,9 @@ She needs a package that will incorporate all the functions she used for this pr
 but without her having to do all the programming herself. She would like something very easy to use and very detailed documentation
 as she wants to follow step by step
 
+Joe is an instructor in epi course which will introduce novel methods that work well with Python. However, he need to introduce very basic epi function first (e.g., show one or 2 way distribution), which is not availlable in Python. He want func to be as easy as possible. Most of his student are beginner for Python. 
+
 Ben is a public health graduate student. He has a time-sensitive project epidemiology visualization which requires PyEpidisplay R library. He is familiar with Python but not R language. He needs to quickly learn how to use the PyEpidisplay library in Python to complete his project on time.
+
+
+Hi
