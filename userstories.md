@@ -19,3 +19,5 @@ but without her having to do all the programming herself. She would like somethi
 as she wants to follow step by step
 
 Ben is a public health graduate student. He has a time-sensitive project epidemiology visualization which requires PyEpidisplay R library. He is familiar with Python but not R language. He needs to quickly learn how to use the PyEpidisplay library in Python to complete his project on time.
+
+Goerge is lecturer for field epi training program. He want to introduce epi methods. However, student in this program learn Python previously. He want easy package for epi methods that can do pivot table with visualization and linear + logistic regression with report OR and 95%.
