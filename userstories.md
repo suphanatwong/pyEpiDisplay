@@ -11,15 +11,15 @@ Boss is senior Biostatistician. He is an expert and need to review the code of e
 Henry is an epidemiology M.S. student with no prior background in R but with lots of experience in Python. However, he does want to become more familiar with R for epidemiology applications, especially because almost all of his coursework is taught with R. He wants to use epiDisplay for a final project but wants to script in Python, which he is more comfortable using. He wants a python version of epiDisplay that is intuitive, easy to use, as well as easy to understand the documentation of as he still wants to gain exposure in R.
 
 John is junior Epidemiologist. He want to analyze epidemiological data.
-He want to basic function, easy, short. He has some experiences in Excel and basic data anaylsis. Just starting use Python.
+He want to basic function, easy, short. He has some experiences in Excel and basic data analysis. Just starting use Python.
 
 Sophie is a researcher who is used to work in R but her current project is all in python.
 She needs a package that will incorporate all the functions she used for this project in R 
 but without her having to do all the programming herself. She would like something very easy to use and very detailed documentation
-as she wants to follow step by step
+as she wants to follow step by step.
 
-Joe is an instructor in epi course which will introduce novel methods that work well with Python. However, he need to introduce very basic epi function first (e.g., show one or 2 way distribution), which is not availlable in Python. He want func to be as easy as possible. Most of his student are beginner for Python. 
+Joe is an instructor in epi course which will introduce novel methods that work well with Python. However, he need to introduce very basic epi function first (e.g., show one or 2 way distribution), which is not available in Python. He want functions to be as easy to understand as possible. Most of his student are beginner for Python. 
 
 Ben is a public health graduate student. He has a time-sensitive project epidemiology visualization which requires PyEpidisplay R library. He is familiar with Python but not R language. He needs to quickly learn how to use the PyEpidisplay library in Python to complete his project on time.
 
-Goerge is lecturer for field epi training program. He want to introduce epi methods. However, student in this program learn Python previously. He want easy package for epi methods that can do pivot table with visualization and linear + logistic regression with report OR and 95%.
+George is lecturer for field epi training program. He want to introduce epi methods. However, students in this program learned Python previously. He wants an easy package for epi methods that can do pivot table with visualization and linear + logistic regression with report OR and 95%.
