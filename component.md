@@ -1,3 +1,5 @@
+# Components
+
 ## 1. Import Build-in Dataset
 
 What it does: Loads a pre-existing dataset that is included with the program or package.
