@@ -1,7 +1,0 @@
-import pyreadr
-
-result = pyreadr.read_r('mydata.RData')  # returns a dict of all R objects
-print(result.keys())  # names of objects in the RData
-
-df = result['df']  # access R object named 'df'
-print(df.head())
