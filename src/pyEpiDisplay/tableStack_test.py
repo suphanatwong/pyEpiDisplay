@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 from tableStack import tableStack
-from data import data
+from pyEpiDisplay.data import data
 
 # Create sample data instead of loading from data()
 #df = data('Outbreak')
