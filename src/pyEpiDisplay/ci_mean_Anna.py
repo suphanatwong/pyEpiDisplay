@@ -3,9 +3,6 @@
 
 # ## Python implementation of R ediDisplay ci.mean()
 
-# In[15]:
-
-
 import numpy as np
 from scipy import stats
 
@@ -35,9 +32,6 @@ def ci_mean(x, ci=0.95):
 
 # ## A pretty printer
 
-# In[16]:
-
-
 def print_ci_mean(result):
     print(f"Mean:           {result['mean']:.3f}")
     print(f"SD:             {result['sd']:.3f}")
@@ -48,16 +42,10 @@ def print_ci_mean(result):
 
 # ## Test on the outbreak dataset
 
-# In[17]:
-
-
 import pandas as pd
 
 outbreak_df = pd.read_csv("outbreak.csv")
 outbreak_df.head()
-
-
-# In[18]:
 
 
 print_ci_mean(ci_mean(outbreak_df["age"]))
