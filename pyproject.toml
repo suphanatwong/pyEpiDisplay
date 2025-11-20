@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling>=1.27.0"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyEpiDisplay"
@@ -8,15 +8,11 @@ version = "0.0.0"
 description = "A package for epidemiological data visualization and analysis."
 authors = [
     {name = "Anna Kroening", email = "akroenin@uw.edu"},
-    {name = "Cat Kim", email = "@uw.edu"},
-    {name = "Jiayi Ding", email = "@uw.edu"},
-    {name = "Marthin Mandig ", email = "@uw.edu"},
     {name = "Suphanat Wongsanuphat", email = "suphanat@uw.edu"},
 ]
 readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = [
-    "intended audience :: Lececuters/Students/Epidemiologists/Bioinformaticians",
     "Programming Language :: Python :: 3"
 ]
 requires-python = ">=3.8"
@@ -30,6 +26,5 @@ dependencies = [
 ]   
 
 [project.urls]
-Homepage = "https://github.com/suphanatwong/pyEpiDisplay"}
+Homepage = "https://github.com/suphanatwong/pyEpiDisplay"
 Issues = "https://github.com/suphanatwong/pyEpiDisplay/issues"
-
