@@ -3,9 +3,6 @@
 
 # ## Replicating ci.prop() function from R into Python
 
-# In[1]:
-
-
 import numpy as np
 from scipy.stats import norm
 
@@ -43,9 +40,6 @@ def ci_prop(x, n=None, ci=0.95):
 
 # ## Pretty Printer
 
-# In[2]:
-
-
 def print_ci_prop(res, ci=0.95):
     print(f"Proportion:   {res['proportion']:.4f}")
     print(f"SE:           {res['se']:.4f}")
@@ -54,17 +48,10 @@ def print_ci_prop(res, ci=0.95):
 
 # ## Test on the outbreak dataset
 
-# In[3]:
-
-
 import pandas as pd
 
 outbreak_df = pd.read_csv("outbreak.csv")
 outbreak_df.head()
-
-
-# In[4]:
-
 
 print_ci_prop(ci_prop(outbreak_df["beefcurry"]))
 
@@ -89,8 +76,5 @@ print_ci_prop(ci_prop(outbreak_df["beefcurry"]))
 # $x
 # [1] 1043
 
-# In[ ]:
-
-
-Numbers match
+# Numbers match
 
