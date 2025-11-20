@@ -7,7 +7,7 @@ name = "pyEpiDisplay"
 version = "0.0.0"
 description = "A package for epidemiological data visualization and analysis."
 authors = [
-    {name = "Anna Kroening", email = "@uw.edu"},
+    {name = "Anna Kroening", email = "akroenin@uw.edu"},
     {name = "Cat Kim", email = "@uw.edu"},
     {name = "Jiayi Ding", email = "@uw.edu"},
     {name = "Marthin Mandig ", email = "@uw.edu"},
