@@ -96,7 +96,7 @@ def logistic_display(formula, data):
 
 #read Outbreak data
 import pandas as pd
-df = pd.read_csv('Outbreak.csv')
+df = pd.read_csv('/home/stlp/pyEpiDisplay/src/pyEpiDisplay/datasets')
 
 df_results = logistic_display('nausea ~ beefcurry + saltegg', df)
 print(df_results)
