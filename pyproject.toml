@@ -9,6 +9,7 @@ description = "A package for epidemiological data visualization and analysis."
 authors = [
     {name = "Anna Kroening", email = "akroenin@uw.edu"},
     {name = "Suphanat Wongsanuphat", email = "suphanat@uw.edu"},
+    {name = "Cat Kim", email = "suyunk@uw.edu"},
 ]
 readme = "README.md"
 license = {file = "LICENSE"}
