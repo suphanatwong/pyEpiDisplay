@@ -100,10 +100,3 @@ df = pd.read_csv('/home/stlp/pyEpiDisplay/src/pyEpiDisplay/datasets')
 
 df_results = logistic_display('nausea ~ beefcurry + saltegg', df)
 print(df_results)
-
-
-# In[ ]:
-
-
-
-
