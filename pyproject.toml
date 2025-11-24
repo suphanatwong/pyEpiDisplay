@@ -3,7 +3,7 @@ requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyEpiDisplay"
+name = "pyepidisplay"
 version = "0.0.0"
 description = "A package for epidemiological data visualization and analysis."
 authors = [
