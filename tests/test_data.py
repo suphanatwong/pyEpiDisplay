@@ -18,14 +18,6 @@ def test_smoke():
     data("Outbreak")
     return
 
-
-def test_smoke():
-    """
-    Simple smoke test to make sure function runs.
-    """
-    data("Outbreak")
-    return
-
 def test_smoke_no_quote():
     """
     Simple smoke test to make sure function runs.
