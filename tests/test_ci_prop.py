@@ -1,4 +1,4 @@
-from pyEpiDisplay.ci_prop import ci_prop
+from pyepidisplay.ci_prop import ci_prop
 
 def test_smoke():
     """

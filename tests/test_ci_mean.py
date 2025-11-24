@@ -1,4 +1,4 @@
-from pyEpiDisplay.ci_mean import ci_mean
+from pyepidisplay.ci_mean import ci_mean
 
 def test_smoke():
     """
