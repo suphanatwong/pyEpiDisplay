@@ -2,7 +2,7 @@ Metadata-Version: 2.4
 Name: pyepidisplay
 Version: 0.0.0
 Summary: A package for epidemiological data visualization and analysis.
-Author-email: Anna Kroening <akroenin@uw.edu>, Suphanat Wongsanuphat <suphanat@uw.edu>, Cat Kim <suyunk@uw.edu>, Jiayi Ding <jiayid03@uw.edu>
+Author-email: Anna Kroening <akroenin@uw.edu>, Suphanat Wongsanuphat <suphanat@uw.edu>, Cat Kim <suyunk@uw.edu>
 License: MIT License
         
         Copyright (c) 2025 suphanatwong
