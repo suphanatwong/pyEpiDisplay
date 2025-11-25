@@ -1,12 +1,16 @@
-from pyEpiDisplay.logistic_display import *
+from pyepidisplay.logistic_display import logistic_display
+from pyepidisplay.data import data
 
-# Smoke Test
+
 #read Outbreak data
 import pandas as pd
+#df = pd.read_csv('Outbreak.csv')
+df=data("Outbreak")
+#df = pd.read_csv('/home/stlp/pyepidisplay/src/pyepidisplay/datasets')
 
+# Smoke Test: check to see if result seems reasonable
 def test_logistic_display_smoke():
-    df = pd.read_csv('/home/stlp/pyEpiDisplay/src/pyEpiDisplay/datasets')
-
+   
     df_results = logistic_display('nausea ~ beefcurry + saltegg', df)
 
     assert isinstance(df_results, pd.DataFrame)
@@ -14,3 +18,17 @@ def test_logistic_display_smoke():
 
     print(df_results)
 
+#one shot test: check to see if code crashes
+#from logistic_display import logistic_display
+
+# print(
+#     logistic_display(
+#         'nausea ~ beefcurry + saltegg',
+#         df
+#     )
+# )
+
+    
+#edge test
+
+#pattern test
