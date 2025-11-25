@@ -3,10 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pytest
+from pyepidisplay.data import data
 
 from pyepidisplay.tab1 import tab1
-outbreak = pd.read_csv("/Users/Joey/Downloads/FallQuarter/CSE583/pyEpiDisplay/src/pyepidisplay/datasets/Outbreak.csv")
-
+#outbreak = pd.read_csv("/Users/Joey/Downloads/FallQuarter/CSE583/pyEpiDisplay/src/pyepidisplay/datasets/Outbreak.csv")
+outbreak = data("Outbreak")
 def test_smoke():
     """
     Simple smoke test to make sure function runs.
