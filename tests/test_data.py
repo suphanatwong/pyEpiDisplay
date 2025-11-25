@@ -59,7 +59,6 @@ def test_wrong_dataset():
     return
 
 
-
 def test_compare_python_r_outbreak_rpy2():
     from rpy2 import robjects
     from rpy2.robjects import pandas2ri
