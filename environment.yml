@@ -10,3 +10,4 @@ dependencies:
   - pyreadr
   - pytest
   - pip
+  - rpy2
