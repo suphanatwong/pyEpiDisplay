@@ -9,49 +9,34 @@ from pyepidisplay.data import data
 from pyepidisplay.datasets import DATA_PATH
 import pytest
 
-# Create sample data instead of loading from data()
-
+# Smoke tests
 def test_smoke():
-    """
-    Simple smoke test to make sure function runs.
-    """
     data("Outbreak")
     return
 
 def test_smoke_no_quote():
-    """
-    Simple smoke test to make sure function runs.
-    """
     data(Outbreak)
     return
 
 def test_smoke_small():
-    """
-    Simple smoke test to make sure function runs.
-    """
     data(outbreak)
-
     return
+
 def test_smoke_cap():
-    """
-    Simple smoke test to make sure function runs.
-    """
     data(OUTBREAK)
     return
 
 def test_smoke_cap_str():
-    """
-    Simple smoke test to make sure function runs.
-    """
     data("OUTBREAK")
     return
 
+# one shot test
+def test_one_shot_known_column():
+    df = data("Outbreak")
+    assert df.columns[0] == "id"
 
+## Edge test
 def test_wrong_dataset():
-    """
-    Edge test to make sure the function throws a ValueError
-    when the input probabilities do not sum to one.
-    """
     with pytest.raises(
         ValueError, match="Dataset 'Outbreak_abc' not found."
     ):
@@ -59,15 +44,12 @@ def test_wrong_dataset():
     return
 
 
+# Pattern test
 def test_compare_python_r_outbreak_rpy2():
     from rpy2 import robjects
     from rpy2.robjects import pandas2ri
     from rpy2.robjects.conversion import localconverter
     import numpy as np
-    """
-    Compare Python dataset with R EpiDisplay dataset using rpy2.
-    Compares shape, column names, dtypes, and values.
-    """
     dataset_name = "Outbreak"
 
     # 1) Load Python dataset
@@ -116,3 +98,11 @@ def test_compare_python_r_outbreak_rpy2():
     if np.any(~numeric_mask_final):
         assert np.array_equal(py_values[~numeric_mask_final], r_values[~numeric_mask_final]), \
             "Non-numeric values mismatch between Python and R"
+
+# ----------------------------------------------------------
+def test_pattern_all_datasets_not_empty():
+    dataset_names = data()  # returns list of dataset names
+    for name in dataset_names:
+        df = data(name)  # load dataset
+        assert df.shape[0] > 0, f"{name} has 0 rows"
+        assert df.shape[1] > 0, f"{name} has 0 columns"
