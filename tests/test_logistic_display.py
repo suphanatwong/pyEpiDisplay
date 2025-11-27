@@ -9,7 +9,6 @@ import pandas as pd
 df=data("Outbreak")
 
 # Smoke Test: check to see if result seems reasonable
-#try to test on data that looks different, write a variety of tests rather than make same test for different datasets, TA prefers to see diff types of tests
 """
     author: scatherinekim
     reviewer: 
@@ -21,10 +20,6 @@ def test_logistic_display_smoke():
     assert isinstance(df_results, pd.DataFrame)
     assert not df_results.empty
 
-# Run smoke test and print results
-#df_results = test_logistic_display_smoke(df)
-#print("this is a smoke test\n", test_logistic_display_smoke(df))
-
 # One shot test: check to see if code crashes
 """
     author: scatherinekim
@@ -33,7 +28,6 @@ def test_logistic_display_smoke():
     """
 def test_one_shot():
     logistic_display('nausea ~ beefcurry + saltegg', df)
-
 
 # edge test
 
@@ -97,4 +91,3 @@ def test_logistic_display_pattern():
         assert True
     except Exception as e:
         print(e)
-
