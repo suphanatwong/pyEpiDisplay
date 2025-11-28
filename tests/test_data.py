@@ -11,32 +11,67 @@ import pytest
 
 # Smoke tests
 def test_smoke():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: smoke test
+    """
     data("Outbreak")
     return
 
 def test_smoke_no_quote():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: smoke test
+    """
     data(Outbreak)
     return
 
 def test_smoke_small():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: smoke test
+    """
     data(outbreak)
     return
 
 def test_smoke_cap():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: smoke test
+    """
     data(OUTBREAK)
     return
 
 def test_smoke_cap_str():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: smoke test
+    """
     data("OUTBREAK")
     return
 
 # one shot test
 def test_one_shot_known_column():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: one_shot test
+    """
     df = data("Outbreak")
     assert df.columns[0] == "id"
 
 ## Edge test
 def test_wrong_dataset():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: edge test
+    """
     with pytest.raises(
         ValueError, match="Dataset 'Outbreak_abc' not found."
     ):
@@ -45,7 +80,25 @@ def test_wrong_dataset():
 
 
 # Pattern test
+def test_pattern_all_datasets_not_empty():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: pattern test
+    """
+    dataset_names = data()  # returns list of dataset names
+    for name in dataset_names:
+        df = data(name)  # load dataset
+        assert df.shape[0] > 0, f"{name} has 0 rows"
+        assert df.shape[1] > 0, f"{name} has 0 columns"
+
+
 def test_compare_python_r_outbreak_rpy2():
+    """
+    author: Suphanat
+    reviewer: Anna
+    category: pattern test
+    """
     from rpy2 import robjects
     from rpy2.robjects import pandas2ri
     from rpy2.robjects.conversion import localconverter
@@ -100,9 +153,3 @@ def test_compare_python_r_outbreak_rpy2():
             "Non-numeric values mismatch between Python and R"
 
 # ----------------------------------------------------------
-def test_pattern_all_datasets_not_empty():
-    dataset_names = data()  # returns list of dataset names
-    for name in dataset_names:
-        df = data(name)  # load dataset
-        assert df.shape[0] > 0, f"{name} has 0 rows"
-        assert df.shape[1] > 0, f"{name} has 0 columns"
