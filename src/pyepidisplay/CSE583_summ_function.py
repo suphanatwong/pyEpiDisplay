@@ -42,8 +42,11 @@ print(df.head())
 #Must compare two or more variables
 
 #Creating the function
+
 def summ(series):
-    clean_series = series.dropna()
+    if not isinstance(series, (pd.Series, list, np.ndarray)):
+        raise ValueError("Input must be numeric")
+    clean_series = pd.Series(series).dropna()
     summary = {
         "obs": clean_series.count(),
         "mean": clean_series.mean(),
