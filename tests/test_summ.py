@@ -16,6 +16,7 @@ def test_one_shot():
     data = [1, 2, 3, 4]
     result = summ(pd.Series(data))
     np.testing.assert_allclose(result["mean"], 2.5)  # expected mean
+    return
 
 
 
@@ -28,6 +29,7 @@ def test_smoke():
     category: smoke test
     """
     summ([0, 1, 2])  # should run without error
+    return
 
 #testing
 pytest summ_testfunc.py
@@ -49,6 +51,7 @@ def test_edge_invalid_input():
     """
     with pytest.raises(ValueError, match="Input must be numeric"):
         summ(["a", "b", "c"])
+        return
 
 
 
@@ -65,3 +68,4 @@ def test_pattern_alternating_values():
     result = summ(series)
     np.testing.assert_allclose(result["mean"], 1.5)
     np.testing.assert_allclose(result["median"], 1.5)
+    return
