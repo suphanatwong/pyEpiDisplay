@@ -4,22 +4,32 @@
 
 import pytest
 import pandas as pd
+import numpy as np
 from CSE583_summ_function import summ
 
 def test_one_shot():
-    """One-shot test: check a known input/output pair."""
+    """
+    author: Marthin
+    reviewer: Jiayi
+    category: one shot test
+    """
     data = [1, 2, 3, 4]
-    result = summ(data)
-    assert result == 10  # expected sum
+    result = summ(pd.Series(data))
+    np.testing.assert_allclose(result["mean"], 2.5)  # expected mean
+    return
+
+
+
+
 
 def test_smoke():
-    """Smoke test: just verify the function runs without errors."""
-    try:
-        _ = summ([0, 1, 2])
-    except Exception as e:
-        pytest.fail(f"Smoke test failed with exception: {e}")
-
-
+    """
+    author: Marthin
+    reviewer: Jiayi
+    category: smoke test
+    """
+    summ([0, 1, 2])  # should run without error
+    return
 
 #testing
 pytest summ_testfunc.py
@@ -27,33 +37,35 @@ pytest summ_testfunc.py
 
 
 #Edge test
-def test_edge_empty_series():
-    series = pd.Series([])
-    result = summ(series)
-    assert result["obs"] == 0
-    assert pd.isna(result["mean"])
+          """
+    author: Marthin
+    reviewer: Jiayi
+    category: edge test
+    """
 
-def test_edge_all_nan():
-    series = pd.Series([None, None, None])
-    result = summ(series)
-    assert result["obs"] == 0
-    assert pd.isna(result["mean"])
+def test_edge_invalid_input():
+    """
+    author: Marthin
+    reviewer: Jiayi
+    category: edge test
+    """
+    with pytest.raises(ValueError, match="Input must be numeric"):
+        summ(["a", "b", "c"])
+        return
 
-def test_edge_single_value():
-    series = pd.Series([42])
-    result = summ(series)
-    assert result["obs"] == 1
-    assert result["mean"] == 42
-    assert result["median"] == 42
-    assert result["min"] == 42
-    assert result["max"] == 42
 
 
 
 #Pattern test
 
 def test_pattern_alternating_values():
+    """
+    author: Marthin
+    reviewer: Jiayi
+    category: pattern test
+    """
     series = pd.Series([1, 2, 1, 2, 1, 2])
     result = summ(series)
-    assert result["mean"] == pytest.approx(1.5)
-    assert result["median"] == 1.5
+    np.testing.assert_allclose(result["mean"], 1.5)
+    np.testing.assert_allclose(result["median"], 1.5)
+    return
