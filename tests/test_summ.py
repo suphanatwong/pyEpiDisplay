@@ -7,13 +7,30 @@ import pandas as pd
 from CSE583_summ_function import summ
 
 def test_one_shot():
+
+
+        """
+    author: Marthin
+    reviewer: Jiayi
+    category: one shot test
+    """
     """One-shot test: check a known input/output pair."""
+
     data = [1, 2, 3, 4]
     result = summ(data)
     assert result == 10  # expected sum
 
+
+
+
+
 def test_smoke():
     """Smoke test: just verify the function runs without errors."""
+            """
+    author: Marthin
+    reviewer: Jiayi
+    category: smoke test
+    """
     try:
         _ = summ([0, 1, 2])
     except Exception as e:
@@ -27,6 +44,12 @@ pytest summ_testfunc.py
 
 
 #Edge test
+          """
+    author: Marthin
+    reviewer: Jiayi
+    category: edge test
+    """
+
 def test_edge_empty_series():
     series = pd.Series([])
     result = summ(series)
@@ -53,6 +76,12 @@ def test_edge_single_value():
 #Pattern test
 
 def test_pattern_alternating_values():
+
+              """
+    author: Marthin
+    reviewer: Jiayi
+    category: pattern test
+    """
     series = pd.Series([1, 2, 1, 2, 1, 2])
     result = summ(series)
     assert result["mean"] == pytest.approx(1.5)
