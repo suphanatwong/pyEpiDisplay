@@ -1,6 +1,10 @@
 # Smoke Test for ci_mean
 from pyepidisplay.ci_mean import ci_mean
 
+"""
+I am still working on this. For HW3, I did ci_prop.
+"""
+
 def test_smoke():
     """
     Simple smoke test to make sure the function runs and returns a dict.
