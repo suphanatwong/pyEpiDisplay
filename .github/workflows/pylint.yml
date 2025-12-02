@@ -1,0 +1,37 @@
+name: Pylint
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint
+    - name: Analysing the code with pylint
+      run: |
+        pylint $(git ls-files '*.py')
+
+         # Extract the score from pylint output
+        score=$(grep "Your code has been rated at" pylint_output.txt | sed -E 's/.*rated at ([0-9\.]+)\/10.*/\1/')
+        
+        echo "Detected pylint score: $score"
+
+        # Set minimum acceptable score
+        min_score=9.5
+
+        # Compare scores
+        awk -v s="$score" -v m="$min_score" 'BEGIN {exit (s<m)}' \
+          || (echo "NEEDS REVIEW: Pylint score ($score) is below minimum required ($min_score)" && exit 1)
+
+        echo "PASS: Pylint score meets minimum requirement ($min_score)"
