@@ -1,8 +1,8 @@
 """Load dataset by name."""
 
 import os
-import pandas as pd
 import builtins
+import pandas as pd
 from pyepidisplay.datasets import DATA_PATH
 
 
