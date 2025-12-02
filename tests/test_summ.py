@@ -51,7 +51,9 @@ def test_edge_invalid_input():
     """
     with pytest.raises(ValueError, match="Input must be numeric"):
         summ(["a", "b", "c"])
+
     return
+
 
 
 
@@ -69,3 +71,4 @@ def test_pattern_alternating_values():
     np.testing.assert_allclose(result["mean"], 1.5)
     np.testing.assert_allclose(result["median"], 1.5)
     return
+
