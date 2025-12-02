@@ -1,3 +1,5 @@
+"""Load dataset by name."""
+
 import os
 import pandas as pd
 import builtins
@@ -19,7 +21,7 @@ for _filename in _files:
 def data(name: str = None):
     """Load dataset by name."""
     files = [f for f in os.listdir(DATA_PATH) if f.lower().endswith(".csv")]
-
+    name_original = name
     # no name → return list
     if name is None:
         return [os.path.splitext(f)[0] for f in files]
@@ -29,7 +31,8 @@ def data(name: str = None):
 
     if name not in lookup:
         raise ValueError(
-            f"Dataset '{name}' not found.\n"
+            f"Dataset '{name_original
+            }' not found.\n"
             f"Available datasets: {', '.join(os.path.splitext(f)[0] for f in files)}"
         )
 
