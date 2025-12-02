@@ -1,3 +1,5 @@
+"""Load dataset by name."""
+
 import os
 import pandas as pd
 import builtins
@@ -29,7 +31,8 @@ def data(name: str = None):
 
     if name not in lookup:
         raise ValueError(
-            f"Dataset '{name_original}' not found.\n"
+            f"Dataset '{name_original
+            }' not found.\n"
             f"Available datasets: {', '.join(os.path.splitext(f)[0] for f in files)}"
         )
 
