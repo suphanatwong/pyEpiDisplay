@@ -11,8 +11,14 @@ Epidemiological data analysis increasingly needs to handle novel data sources su
 1) Develop a Python package that translates the core functionalities of the R package EpiDisplay.
 2) Learn how to translate an existing R package into Python, including understanding differences in syntax, data structures, and library ecosystems between R and Python.
 
-## Translated Functionalities and Authors
+## Translated Functionalities
 * logistic_display()
   * author: Cat Kim
 * regress_display()
+  * author: Cat Kim
+
+## Test Functions
+* test_logistic_display()
+  * author: Cat Kim
+* test_regress_display()
   * author: Cat Kim
