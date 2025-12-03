@@ -35,6 +35,6 @@ Epidemiological data analysis increasingly needs to handle novel data sources su
 * test_summ
   * author: Marthin Mandig
 * test_data()
-  * author: Marthin Mandig
+  * author: Suphanat (AT) Wongsanuphat
 * test_table_stack
-  * author: Marthin Mandig
+  * author: Suphanat (AT) Wongsanuphat
