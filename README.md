@@ -16,9 +16,17 @@ Epidemiological data analysis increasingly needs to handle novel data sources su
   * author: Cat Kim
 * regress_display()
   * author: Cat Kim
+* crosstab_function
+  * author: Marthin Mandig
+* summ_function
+  * author: Marthin Mandig
 
 ## Test Functions
 * test_logistic_display()
   * author: Cat Kim
 * test_regress_display()
   * author: Cat Kim
+* test_crosstab
+  * author: Marthin Mandig
+* test_summ
+  * author: Marthin Mandig
