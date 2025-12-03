@@ -36,7 +36,7 @@ class TableStackResult:
         return str(self.results)
 
 
-def tablestack(vars, dataFrame, minlevel="auto", maxlevel="auto", count=True, 
+def table_stack(vars, dataFrame, minlevel="auto", maxlevel="auto", count=True, 
                 na_rm=False, means=True, medians=False, sds=True, decimal=1,
                 total=True, var_labels=True, var_labels_trunc=150, 
                 reverse=False, vars_to_reverse=None, by=None, vars_to_factor=None,

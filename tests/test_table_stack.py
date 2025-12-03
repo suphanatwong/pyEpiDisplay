@@ -5,7 +5,7 @@ import seaborn as sns
 import pytest
 from pyepidisplay.data import data
 
-from pyepidisplay.tablestack import tablestack
+from pyepidisplay.table_stack import table_stack
 df = data("Outbreak")
 # # print(tablestack(['sex'],df))
 # print(tablestack(['sex','nausea'],df))
@@ -22,7 +22,7 @@ df = data("Outbreak")
 import subprocess
 import pandas as pd
 from pyepidisplay.data import data
-from pyepidisplay.tablestack import tablestack
+from pyepidisplay.table_stack import table_stack
 
 def run_r_tablestack(vars, by=None, prevalence=None, percent=None, name_test=None, vars_to_factor=None):
     # Adjust Python numeric indices (0-based) to R (1-based)
@@ -77,7 +77,7 @@ def compare_py_r(vars, by=None, prevalence=None, percent=None, name_test=True, v
     print(f"tablestack(vars={vars}, df, by={[by] if by else None}, "
           f"prevalence={prevalence}, percent={percent}, name_test={name_test}, vars_to_factor={vars_to_factor})")
     
-    py_output = tablestack(
+    py_output = table_stack(
         vars, 
         df, 
         by=[by] if by else None,
