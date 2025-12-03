@@ -74,12 +74,12 @@ def regress_display(model):
 #test function
 
 #read Outbreak data
-import pandas as pd
-df = pd.read_csv('Outbreak.csv')
+# import pandas as pd
+# df = data('Outbreak')
 
-import statsmodels.formula.api as smf
-model = smf.ols('onset ~ beefcurry + saltegg', data=df).fit()
-df_results = regress_display(model)
-print(df_results) #need to troubleshoot
+# import statsmodels.formula.api as smf
+# model = smf.ols('onset ~ beefcurry + saltegg', data=df).fit()
+# df_results = regress_display(model)
+# print(df_results) #need to troubleshoot
 #add lower 95% CI
 
