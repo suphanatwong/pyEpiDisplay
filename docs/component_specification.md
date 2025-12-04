@@ -2,13 +2,12 @@
 
 ## 1. data() — Import Built-in Dataset
 
-What it does:
-Loads built-in example datasets included with the package.
+- What it does: Loads built-in example datasets included with the package.
 
-Inputs: None
-Outputs: DataFrame
-Components used: Internal dataset loader
-Side effects: Dataset loaded into memory
+- Inputs: None
+- Outputs: DataFrame
+- Components used: Internal dataset loader
+- Side effects: Dataset loaded into memory
 
 ## 2. des() — Magnitude Distribution & One-Variable Description
 
