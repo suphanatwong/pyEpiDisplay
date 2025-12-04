@@ -7,6 +7,18 @@ Our project goal is to translate the epiDisplay R package into Python and  under
 
 ## User profile. Who uses the system. What they know about the domain and computing (e.g., can browse the web, can program in Python)
 
+Henry is an epidemiology M.S. student with no prior background in R but with lots of experience in Python. 
+Priorities:
+Become more familiar with R for epidemiology applications, especially because almost all of his coursework is taught with R. 
+Wants a python version of epiDisplay that is intuitive, easy to use, as well as easy to understand the documentation of as he still wants to gain exposure in R.
+
+
+James is a software developer and wants to use functions for R but only works in Python. 
+Priorities:
+Doesn't care too much about the epi data, just wants to add some of the functions in converting R to python in his packages. 
+Doesn't have much time to add it. 
+
+
 ## Data source
 ### Outbreak Dataset: Thailand 1990 Food Poisoning Outbreak
 We wil be testing our functions using epiDisplay's Outbreak dataset, which originates from a critical public health investigation in Supan Buri Province, Thailand, on August 25, 1990. The incident involved an acute gastrointestinal illness affecting attendees of a national handicapped sports day held at a provincial college.
@@ -23,6 +35,26 @@ We wil be testing our functions using epiDisplay's Outbreak dataset, which origi
 Thaikruea L, Pataraarechachai J, Savanpunyalert P, Naluponjiragul U. An unusual outbreak of food poisoning. Southeast Asian J Trop Med Public Health. 1995;26(1):78-85.
 
 ## Use cases. Describing at least two use cases. For each, describe: (a) the objective of the user interaction (e.g., withdraw money from an ATM); and (b) the expected interactions between the user and your system.
+Import external dataset 
+
+Import build-in dataset
+
+Display dataset and Pivot table with multiple variables
+
+Descriptive analytics
+Frequency, Count, Sum
+Central of Tendency: Mean, Median
+Measure of Variation: SD, IQR, …
+Check for outliers
+
+Data Visualization
+Exploratory Data Visualization
+Publication/ Report Data Visualization
+
+Inferential Analytics 
+Logistic regression with OR and 95% confidence interval
+Linear regression
+
 
 
 
