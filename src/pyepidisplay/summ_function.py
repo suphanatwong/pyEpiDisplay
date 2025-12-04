@@ -6,7 +6,6 @@ cse583_summ_function module.
 Provides a summary function for pandas Series and example usage.
 """
 
-import sys
 import pyreadr
 import matplotlib.pyplot as plt
 import seaborn as sns

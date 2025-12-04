@@ -3,7 +3,6 @@ crosstab_function module.
 Provides a general-purpose cross-tabulation function with counts, percentages, and chi-square test.
 """
 
-import os
 import pandas as pd
 from scipy.stats import chi2_contingency
 import pyreadr
