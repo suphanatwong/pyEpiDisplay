@@ -20,7 +20,7 @@ To install the package,
    
 Need: Quick, accessible functions for core analytical tasks in a Python environment.
 
-Value: Provides pre-built, easy-to-use functions for essential calculations: ci_prop(), ci_mean(), crosstab_function(), and summ_function(). This accelerates the learning curve by focusing on interpretation rather than complex coding.
+Value: Provides pre-built, easy-to-use functions for essential calculations: crosstab_function(), summ_function(), logistic_display()ci_prop(), regress_display(), table_stack, ci_mean() etc. This accelerates the learning curve by focusing on interpretation rather than complex coding.
 
 - R-to-Python Transitioners
   
