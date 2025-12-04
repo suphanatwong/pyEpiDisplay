@@ -43,7 +43,7 @@ include-package-data = true
 where = ["src"]
 
 [tool.ruff] 
-exclude = ["tests","example"]
+exclude = ["tests","examples","docs"]
 
 
 [tool.setuptools.package-data]
