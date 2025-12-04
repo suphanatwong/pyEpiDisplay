@@ -7,9 +7,9 @@ Our project goal is to translate the epiDisplay R package into Python and  under
 
 ## User profile. Who uses the system. What they know about the domain and computing (e.g., can browse the web, can program in Python)
 
-## Data sources
+## Data source
 ### Outbreak Dataset: Thailand 1990 Food Poisoning Outbreak
-The foundation of our project is the Outbreak dataset, which originates from a critical public health investigation in Supan Buri Province, Thailand, on August 25, 1990. The incident involved an acute gastrointestinal illness affecting attendees of a national handicapped sports day held at a provincial college.
+We wil be testing our functions using epiDisplay's Outbreak dataset, which originates from a critical public health investigation in Supan Buri Province, Thailand, on August 25, 1990. The incident involved an acute gastrointestinal illness affecting attendees of a national handicapped sports day held at a provincial college.
 
 #### Investigation Details and Findings:
 * Scope: An epidemiological team was deployed to determine the cause of the outbreak, involving interviews with all 1,210 individuals present at the event, alongside environmental surveys, analysis of food samples, and swabs collected from food handlers.
@@ -20,4 +20,5 @@ The foundation of our project is the Outbreak dataset, which originates from a c
 * Laboratory Confirmation: Microbiological analysis strongly supported the epidemiological findings. Laboratory examination of the eclairs indicated heavy growth of Staphylococcus aureus (producing toxins A and C) and Bacillus cereus. While nasal swabs from healthy food handlers identified similar bacteria, the phage types differed from those found in the implicated food, confirming the contaminated eclairs as the vehicle for the outbreak.
 
 ## Use cases. Describing at least two use cases. For each, describe: (a) the objective of the user interaction (e.g., withdraw money from an ATM); and (b) the expected interactions between the user and your system.
+
 
