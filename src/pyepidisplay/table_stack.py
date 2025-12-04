@@ -6,7 +6,6 @@ or breakdown distribution against a column variable.
 """
 import numpy as np
 import pandas as pd
-from scipy import stats
 from scipy.stats import chi2_contingency, fisher_exact, kruskal, mannwhitneyu, f_oneway, ttest_ind, bartlett, shapiro
 from sklearn.decomposition import FactorAnalysis
 import warnings
@@ -376,7 +375,7 @@ def _table_stack_no_by(selected, dataFrame, selected_df, minlevel, maxlevel,
         items_reversed=items_reversed,
         total_score=total_score,
         mean_score=mean_score,
-        stats_dict=stats_dic
+        stats_dict=stats_dict
     )
 
 
@@ -423,7 +422,7 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
 
                             if p_shapiro < assumption_p_value or p_bartlett < assumption_p_value:
                                 selected_iqr.append(i)
-                    except:
+                    except Exception:
                         pass
     elif selected_iqr is None:
         selected_iqr = []
@@ -436,9 +435,6 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
     # Build table data as dictionary for proper DataFrame construction
     table_data = []
     row_labels = []
-
-    # Prepare column structure
-    n_by_cols = len(by1.categories)
 
     # Add sample size row
     if sample_size:
@@ -514,9 +510,9 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
                 if test:
                     if name_test:
                         prev_data['Test'] = test_method
-                        prev_data['P-value'] = f"< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
+                        prev_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
                     else:
-                        prev_data['P-value'] = f"< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
+                        prev_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
 
                 table_data.append(prev_data)
                 row_labels.append(f"{var_name} = {ct.index[1]}")
@@ -530,10 +526,10 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
                 if test:
                     if name_test:
                         header_data['Test'] = test_method
-                        header_data['P-value'] = f"< 0.001"\
+                        header_data['P-value'] = "< 0.001"\
                               if p_value < 0.001 else round(p_value, decimal + 2)
                     else:
-                        header_data['P-value'] = f"< 0.001"\
+                        header_data['P-value'] = "< 0.001"\
                               if p_value < 0.001 else round(p_value, decimal + 2)
 
                 table_data.append(header_data)
@@ -611,9 +607,9 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
             if test:
                 if name_test:
                     header_data['Test'] = test_method
-                    header_data['P-value'] = f"< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
+                    header_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
                 else:
-                    header_data['P-value'] = f"< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
+                    header_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
 
             table_data.append(header_data)
             row_labels.append(var_name)
