@@ -5,7 +5,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from CSE583_summ_function import summ
+from pyepidisplay.summ_function import summ
 
 def test_one_shot():
     """

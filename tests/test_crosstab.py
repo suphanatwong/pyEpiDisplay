@@ -2,7 +2,7 @@
 
 import pytest
 import pandas as pd
-from CSE583_Crosstab_Function import my_crosstab   # adjust filename if needed
+from pyepidisplay.crosstab_function import my_crosstab   # adjust filename if needed
 
 def test_one_shot(capsys):
     """One-shot test: verify output structure on known input."""
