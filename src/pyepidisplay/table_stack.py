@@ -6,7 +6,16 @@ or breakdown distribution against a column variable.
 """
 import numpy as np
 import pandas as pd
-from scipy.stats import chi2_contingency, fisher_exact, kruskal, mannwhitneyu, f_oneway, ttest_ind, bartlett, shapiro
+from scipy.stats import (
+    chi2_contingency,
+    fisher_exact,
+    kruskal,
+    mannwhitneyu,
+    f_oneway,
+    ttest_ind,
+    bartlett,
+    shapiro
+)
 from sklearn.decomposition import FactorAnalysis
 import warnings
 
@@ -266,7 +275,6 @@ def _table_stack_no_by(selected, dataFrame, selected_df, minlevel, maxlevel,
                 except:
                     warnings.warn("Factor analysis failed. Reverse disabled.")
                     reverse = False
-
     # Build table
     table_data = []
 
@@ -368,7 +376,8 @@ def _table_stack_no_by(selected, dataFrame, selected_df, minlevel, maxlevel,
     # Identify reversed items
     items_reversed = None
     if reverse or (vars_to_reverse is not None):
-        items_reversed = [dataFrame.columns[selected[i]] for i in range(len(selected)) if sign1[i] < 0]
+        items_reversed = [dataFrame.columns[selected[i]] 
+                          for i in range(len(selected)) if sign1[i] < 0]
 
     return TableStackResult(
         results=results,

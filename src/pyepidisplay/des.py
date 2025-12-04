@@ -1,6 +1,15 @@
+"""
+Module `des` provides a descriptive summary function for pandas DataFrames,
+similar to R's epiDisplay::des().
+"""
+
 import pandas as pd
 
-class DesResult:
+class DesResult:  # pylint: disable=too-few-public-methods
+    """
+    Represents the descriptive summary of a DataFrame, including
+    a header with dataset info and a table with variable details.
+    """
     def __init__(self, header, table):
         self.header = header
         self.table = table
