@@ -25,9 +25,26 @@ dependencies = [
     "scipy>=1.7.0",
     "matplotlib>=3.4.0",
     "seaborn>=0.11.0",
-    "pytest"
-]   
+    "rpy2>=3.5.0",
+    "scikit-learn>=1.0.0"
+]
 
 [project.urls]
 Homepage = "https://github.com/suphanatwong/pyEpiDisplay"
 Issues = "https://github.com/suphanatwong/pyEpiDisplay/issues"
+
+# ------------------------------------------------------------
+# REQUIRED FOR INCLUDING Outbreak.csv IN THE BUILT PACKAGE
+# ------------------------------------------------------------
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+exclude = ["tests"]
+
+
+[tool.setuptools.package-data]
+"pyepidisplay.datasets" = ["*.csv"]

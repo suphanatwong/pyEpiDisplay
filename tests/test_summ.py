@@ -32,7 +32,7 @@ def test_smoke():
     return
 
 #testing
-pytest summ_testfunc.py
+#pytest summ_testfunc.py
 
 
 

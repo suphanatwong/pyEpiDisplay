@@ -1,103 +1,80 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# The logistic.display() function in R takes in a fitted logistic regression object and outputs a logistic model summary. When the Outbreak Investigations dataset is the dataset, this function can be used to model the probability that a person experiences a certain symptom such as nausea as a function of whether they ate a certain food such as beef curry.
-# 
-# The output provides the following data: 
-# - The crude OR(95% CI) is the unadjusted odds ratio obtained from modeling each predictor alone with the outcome.
-# - The adj. OR(95% CI) is the adjusted odds ratio from the multivariate model that includes all predictors simultaenously.
-# - P(Wald's test) is the Wald test p-value that evaluates whether the coefficient (log-odds) for that variable differs from 0.
-# - P(LR-test) is the likelihood ratio p value that compares the full model vs a model without that predictor.
-# - The output also provides model fit statistics like the log-likelihood, the number of observations, and the AIC (Akaike Information Criterion).
-
+"""
+Utilities for displaying crude and adjusted logistic regression results,
+mimicking epiDisplay::logistic.display in R.
+"""
 
 import pandas as pd
 import numpy as np
 import statsmodels.formula.api as smf
 from scipy import stats
 
+# pylint: disable=too-many-locals
 def logistic_display(formula, data):
     """
     Mimics epiDisplay::logistic.display in R.
-    Computes both crude and adjusted ORs, 95% CIs, and Wald p-values.
+    Computes both crude and adjusted ORs, 95% CIs, and Wald + LR p-values.
 
     Parameters:
         formula (str): e.g. 'nausea ~ beefcurry + saltegg'
         data (pd.DataFrame): dataset
 
     Returns:
-        pd.DataFrame: Crude ORs, Adjusted ORs, p-values (Wald test), and LR test p-values
+        pd.DataFrame
     """
 
-    # Parse outcome and predictors
+    # Parse formula
     outcome, rhs = formula.split("~")
     outcome = outcome.strip()
     predictors = [x.strip() for x in rhs.split("+")]
 
-    # Fit adjusted (multivariate) model
+    # Adjusted model
     full_model = smf.logit(formula=formula, data=data).fit(disp=0)
-    ll_full = full_model.llf
     adj_params = full_model.params
     adj_ci = full_model.conf_int()
     adj_pvals = full_model.pvalues
+    ll_full = full_model.llf
 
-    results = []
+    rows = []
 
     for predictor in predictors:
-        #crude model (univariate)
+        # Crude model
         crude_model = smf.logit(f"{outcome} ~ {predictor}", data=data).fit(disp=0)
-        crude_params = crude_model.params[predictor]
-        crude_ci = np.exp(crude_model.conf_int().loc[predictor])
-        crude_OR = np.exp(crude_params)
+        crude_beta = crude_model.params[predictor]
+        crude_ci_vals = np.exp(crude_model.conf_int().loc[predictor])
+        crude_or = np.exp(crude_beta)
 
-        #adjusted model
-        adj_params_pred = adj_params[predictor]
-        adj_OR = np.exp(adj_params_pred)
-        adj_ci_pred = np.exp(adj_ci.loc[predictor])
+        # Adjusted
+        adj_beta = adj_params[predictor]
+        adj_or = np.exp(adj_beta)
+        adj_ci_vals = np.exp(adj_ci.loc[predictor])
 
-        #wald p-value
+        # Wald p-value
         p_wald = adj_pvals[predictor]
 
-        #LR test p-p value
+        # Likelihood ratio test
         reduced_predictors = [v for v in predictors if v != predictor]
-
-        # if removing the variable leaves no predictors, use intercept-only model
         if reduced_predictors:
-            reduced_formula = outcome + " ~ " + " + ".join(reduced_predictors)
+            reduced_formula = f"{outcome} ~ {' + '.join(reduced_predictors)}"
         else:
-            reduced_formula = outcome + " ~ 1"
+            reduced_formula = f"{outcome} ~ 1"
 
         reduced_model = smf.logit(reduced_formula, data=data).fit(disp=0)
-        ll_reduced = reduced_model.llf
-
-        lr_stat = 2 * (ll_full - ll_reduced)
+        lr_stat = 2 * (ll_full - reduced_model.llf)
         p_lr = 1 - stats.chi2.cdf(lr_stat, df=1)
 
-        results.append({
+        rows.append({
             "Variable": predictor,
-            "Crude OR (95% CI)": f"{crude_OR:.2f} ({crude_ci[0]:.2f}, {crude_ci[1]:.2f})",
-            "Adj. OR (95% CI)": f"{adj_OR:.2f} ({adj_ci_pred[0]:.2f}, {adj_ci_pred[1]:.2f})",
+            "Crude OR (95% CI)": f"{crude_or:.2f} ({crude_ci_vals[0]:.2f}, {crude_ci_vals[1]:.2f})",
+            "Adj. OR (95% CI)": f"{adj_or:.2f} ({adj_ci_vals[0]:.2f}, {adj_ci_vals[1]:.2f})",
             "P(Wald)": f"{p_wald:.2f}",
-            "P(LR-test)": f"{p_lr:.2f}"
+            "P(LR-test)": f"{p_lr:.2f}",
         })
 
-    # Print model summary info
+    # Display summary
     print(f"\nLog-likelihood = {full_model.llf:.4f}")
     print(f"No. of observations = {int(full_model.nobs)}")
     print(f"AIC value = {full_model.aic:.4f}\n")
 
-    return pd.DataFrame(results)
-
-    # Smoke Test
-#read Outbreak data
-import pandas as pd
-
-def test_logistic_display_smoke():
-    df = pd.read_csv('/home/stlp/pyEpiDisplay/src/pyEpiDisplay/datasets')
-
-    df_results = logistic_display('nausea ~ beefcurry + saltegg', df)
-
-    assert isinstance(df_results, pd.DataFrame)
-    assert not df_results.empty
-
-    print(df_results)
+    return pd.DataFrame(rows)
