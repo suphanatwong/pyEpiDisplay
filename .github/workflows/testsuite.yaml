@@ -61,11 +61,12 @@ jobs:
       - name: Install
         run: pip install --no-deps .
 
-      # - name: Install Ruff
-      #   run: pip install ruff
+      - name: Install Ruff
+        run: pip install ruff
 
-      # - name: Lint with Ruff
-      #   run: ruff check
+      - name: Lint with Ruff
+        run: ruff check
+
       - name: Install pytest-cov
         run: pip install pytest-cov
         
