@@ -11,9 +11,6 @@
 # - P(F-test)
 # - No. of observations
 
-# In[3]:
-
-
 import pandas as pd
 import numpy as np
 import statsmodels.api as sm
@@ -21,15 +18,19 @@ import statsmodels.api as sm
 def regress_display(model):
     """
     Mimics epiDisplay::regress.display in R.
+    Generates a summary table for linear regression models, including
+    adjusted coefficients, 95% confidence intervals, t-test p-values,
+    and sequential Type I ANOVA F-test p-values.
 
-    Parameters
-    ----------
-    model : fitted statsmodels model
-        e.g., smf.ols(...).fit() or smf.logit(...).fit()
-    logistic : bool
-        Set True for logistic regression to show Odds Ratios instead of Coefficients.
-    digits : int
-        Number of decimal places to round.
+    Parameters:
+        model (statsmodels.regression.linear_model.RegressionResultsWrapper):
+            A fitted statsmodels OLS model, e.g. smf.ols(...).fit().
+
+    Returns:
+        pd.DataFrame:
+            A table containing variable names, adjusted coefficients
+            with 95% confidence intervals, t-test p-values, and
+            F-test p-values based on Type I ANOVA.
     """
     outcome = model.model.data.ynames
     print(f"Linear regression predicting {outcome}\n")
@@ -69,17 +70,3 @@ def regress_display(model):
     table = pd.DataFrame(data)
     print(f"No. of observations = {int(model.nobs)}\n")
     return table
-
-
-#test function
-
-#read Outbreak data
-import pandas as pd
-df = pd.read_csv('Outbreak.csv')
-
-import statsmodels.formula.api as smf
-model = smf.ols('onset ~ beefcurry + saltegg', data=df).fit()
-df_results = regress_display(model)
-print(df_results) #need to troubleshoot
-#add lower 95% CI
-
