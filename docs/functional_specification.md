@@ -19,6 +19,10 @@ We wil be testing our functions using epiDisplay's Outbreak dataset, which origi
 * Analytical Benchmark: A definitive statistical evaluation using unconditional logistic regression confirmed that only the consumption of eclairs remained a statistically significant risk factor, yielding a high adjusted Relative Risk (RR) of 11.96 (95% Confidence Interval: 9-22).
 * Laboratory Confirmation: Microbiological analysis strongly supported the epidemiological findings. Laboratory examination of the eclairs indicated heavy growth of Staphylococcus aureus (producing toxins A and C) and Bacillus cereus. While nasal swabs from healthy food handlers identified similar bacteria, the phage types differed from those found in the implicated food, confirming the contaminated eclairs as the vehicle for the outbreak.
 
+**Citation**: 
+Thaikruea L, Pataraarechachai J, Savanpunyalert P, Naluponjiragul U. An unusual outbreak of food poisoning. Southeast Asian J Trop Med Public Health. 1995;26(1):78-85.
+
 ## Use cases. Describing at least two use cases. For each, describe: (a) the objective of the user interaction (e.g., withdraw money from an ATM); and (b) the expected interactions between the user and your system.
+
 
 
