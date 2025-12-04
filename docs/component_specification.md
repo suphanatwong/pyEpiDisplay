@@ -112,7 +112,7 @@ Calculates CI for mean using Z or t distribution.
 ## 12. ci_prop() — Confidence Interval for Proportion
 
 - What it does:
-Computes proportion CI using exact/Wald/Wilson methods.
+Calculates the point estimate (prevalence, incidence proportion) and confidence interval for a proportion derived from a binary outcome variable (e.g., disease status).
 
 - Inputs: Number of successes + sample size
 - Outputs: CI
