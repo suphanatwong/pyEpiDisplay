@@ -46,7 +46,7 @@ def table_stack(vars, dataFrame, minlevel="auto", maxlevel="auto", count=True,
                 na_rm=False, means=True, medians=False, sds=True, decimal=1,
                 total=True, var_labels=True, var_labels_trunc=150,
                 reverse=False, vars_to_reverse=None, by=None, vars_to_factor=None,
-                iqr="auto", prevalence=False, percent="column", frequency=True,
+                iqr="auto", prevalence=False, percent="col", frequency=True,
                 test=True, name_test=True, total_column=False,
                 simulate_p_value=False, sample_size=True, assumption_p_value=0.01):
     """
@@ -93,7 +93,7 @@ def table_stack(vars, dataFrame, minlevel="auto", maxlevel="auto", count=True,
     prevalence : bool
         For dichotomous variables, show prevalence
     percent : str
-        Type of percentage: "column", "row", or "none"
+        Type of percentage: "col", "row", or "none"
     frequency : bool
         Whether to display frequency in cells
     test : bool
@@ -273,7 +273,7 @@ def _table_stack_no_by(selected, dataFrame, selected_df, minlevel, maxlevel,
                         sign1[idx] = np.sign(corr)
                         if sign1[idx] < 0:
                             selected_matrix[:, idx] = maxlevel + minlevel - selected_matrix[:, idx]
-                except:
+                except Exception:
                     warnings.warn("Factor analysis failed. Reverse disabled.")
                     reverse = False
     # Build table
@@ -550,7 +550,7 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
                     level_data = {}
                     for cat in by1.categories:
                         count = ct.loc[level, cat]
-                        if percent == "column":
+                        if percent == "col":
                             pct = round(count / ct[cat].sum() * 100, decimal) if ct[cat].sum() > 0 else 0
                         elif percent == "row":
                             pct = round(count / ct.loc[level].sum() * 100, decimal) if ct.loc[level].sum() > 0 else 0

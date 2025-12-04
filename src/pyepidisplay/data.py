@@ -54,7 +54,7 @@ Example:
 import os
 import builtins
 import pandas as pd
-from pyepidisplay.datasets import DATA_PATH
+from pyepidisplay.datasets import DATA_PAT
 
 # -------------------------------------------------------------------------
 # Register dataset name constants globally so tests like data(Outbreak) work
