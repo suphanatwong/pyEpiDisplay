@@ -1,4 +1,5 @@
 """
+Module `des` provides a Python version of R's epiDisplay::des function.
 Module `des` provides a descriptive summary function for pandas DataFrames,
 similar to R's epiDisplay::des().
 """

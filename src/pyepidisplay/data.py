@@ -1,4 +1,6 @@
 """
+Module `data` provides a Python version of R's epiDisplay::data function.
+
 Load an example dataset by name.
 
 This function retrieves built-in example datasets for analysis or testing.
@@ -43,6 +45,9 @@ Example:
     >>> df.head()
 
     >>> df = data(Outbreak)
+    >>> df.head()
+
+    >>> df = data(outbreak)
     >>> df.head()
 """
 

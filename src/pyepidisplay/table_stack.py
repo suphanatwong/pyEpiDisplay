@@ -1,4 +1,5 @@
 """
+Module `table_stack` provides a Python version of R's epiDisplay::tableStack function.
 tableStack: Tabulation of variables in a stack form
 This module provides functionality for tabulating variables with the same possible
 range of distribution and stacking them into a new table with descriptive statistics
