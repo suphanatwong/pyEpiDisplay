@@ -23,7 +23,7 @@ def tab1(column, df):
             raise ValueError("Column contains NA values.")
 
     df_col = df[column].value_counts(dropna=False).sort_index()
-    df_col_1 = df_col.reset_index(column)
+    df_col_1 = df_col.reset_index()
     df_col_1.columns = [column, 'Frequency']
     df_col_1 = df_col_1.set_index(column)
     df_col_1['Percent'] = ((df_col_1['Frequency'] / len(df)) * 100).round(2)

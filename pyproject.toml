@@ -42,8 +42,8 @@ include-package-data = true
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.ruff]
-exclude = ["tests"]
+[tool.ruff] 
+exclude = ["tests","example"]
 
 
 [tool.setuptools.package-data]

@@ -6,10 +6,6 @@ cse583_summ_function module.
 Provides a summary function for pandas Series and example usage.
 """
 
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-
 def summ(series):
     """
     Summarize a pandas Series with count, mean, median, std, min, and max.

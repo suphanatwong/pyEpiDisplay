@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from datetime import datetime, timedelta
-from scipy import stats
 
 def dotplot(x, bin="auto", by=None, xmin=None, xmax=None, time_format=None, 
             time_step=None, pch=18, dot_col="auto", main="auto", ylab="auto", 
@@ -120,7 +118,7 @@ def dotplot(x, bin="auto", by=None, xmin=None, xmax=None, time_format=None,
             max_date = value.max()
         
         if date_range < 1:
-            raise ValueError(f"Only one day, not suitable for plotting")
+            raise ValueError("Only one day, not suitable for plotting")
         
         # Determine date format based on range
         if date_range < 10:
