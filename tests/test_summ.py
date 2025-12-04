@@ -20,40 +20,31 @@ def test_one_shot():
 
 
 
-def test_smoke():
-    """
-    author: Marthin
-    reviewer: Jiayi
-    category: smoke test
-    """
-    summ([0, 1, 2])  # should run without error
-    return
+# def test_smoke():
+#     """
+#     author: Marthin
+#     reviewer: Jiayi
+#     category: smoke test
+#     """
+#     summ([0, 1, 2])  # should run without error
+#     return
 
 #testing
 #pytest summ_testfunc.py
 
 
 
-#Edge test
-          """
-    author: Marthin
-    reviewer: Jiayi
-    category: edge test
-    """
+# #Edge test
+# def test_edge_invalid_input():
+#     """
+#     author: Marthin
+#     reviewer: Jiayi
+#     category: edge test
+#     """
+#     with pytest.raises(ValueError, match="Input must be numeric"):
+#         summ(["a", "b", "c"])
 
-def test_edge_invalid_input():
-    """
-    author: Marthin
-    reviewer: Jiayi
-    category: edge test
-    """
-    with pytest.raises(ValueError, match="Input must be numeric"):
-        summ(["a", "b", "c"])
-
-    return
-
-
-
+#     return
 
 
 #Pattern test

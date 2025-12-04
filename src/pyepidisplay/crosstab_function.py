@@ -5,13 +5,9 @@ Provides a general-purpose cross-tabulation function with counts, percentages, a
 
 import pandas as pd
 from scipy.stats import chi2_contingency
-import pyreadr
 
-FILE_PATH = "/Users/marthinmandig/Downloads/epiDisplay/data/Outbreak.rdata"
 
 # Read rdata file
-result = pyreadr.read_r(FILE_PATH)
-df = result['Outbreak']
 
 def my_crosstab(x_var, y_var, chisq=True):
     """
@@ -38,6 +34,3 @@ def my_crosstab(x_var, y_var, chisq=True):
         print(f"Chi2 = {chi2:.3f}, df = {dof}, p-value = {p_value:.4f}")
         print("\nExpected counts:")
         print(pd.DataFrame(expected, index=tab.index, columns=tab.columns).round(1))
-
-# Example usage
-my_crosstab(df['nausea'], df['sex'])
