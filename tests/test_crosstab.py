@@ -1,4 +1,4 @@
-# test_my_crosstab.py
+## test_my_crosstab.py
 
 import pytest
 import pandas as pd
@@ -36,7 +36,7 @@ def test_smoke():
 
 #Testing
 
-pytest crosstab_testfunc.py
+#pytest crosstab_testfunc.py
 
 
 

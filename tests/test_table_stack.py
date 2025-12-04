@@ -5,24 +5,18 @@ import seaborn as sns
 import pytest
 from pyepidisplay.data import data
 
-from pyepidisplay.tablestack import tablestack
-df = data("Outbreak")
-# # print(tablestack(['sex'],df))
-# print(tablestack(['sex','nausea'],df))
-# print(tablestack(['sex'],df, by=['beefcurry'], percent='row'))
-# print(tablestack(['age','sex'],df, by=['beefcurry']))
-# Instead of [5:8], use range(5, 8) or list(range(5, 8))
-# print(tablestack(vars=range(5, 8), dataFrame=df, by=['beefcurry'], vars_to_factor=range(5, 8)))
-# # Or with list
-# print(tablestack(vars=list(range(5, 8)), dataFrame=df, by=['beefcurry'], vars_to_factor=list(range(5, 8))))
-
-# # Or with explicit list
-# print(tablestack(vars=[5, 6, 7], dataFrame=df, by=['beefcurry'], vars_to_factor=[5, 6, 7]))
-
+from pyepidisplay.table_stack import table_stack
 import subprocess
-import pandas as pd
-from pyepidisplay.data import data
-from pyepidisplay.tablestack import tablestack
+df = data("Outbreak")
+
+def smoke_test():
+    result = table_stack(df=df, vars=[' sex', 'nausea'], by=['beefcurry'])  
+    return result
+
+def one_shot_test():
+    result = table_stack(
+        vars=['sex','nausea'])
+    assert result is not None
 
 def run_r_tablestack(vars, by=None, prevalence=None, percent=None, name_test=None, vars_to_factor=None):
     # Adjust Python numeric indices (0-based) to R (1-based)
@@ -77,7 +71,7 @@ def compare_py_r(vars, by=None, prevalence=None, percent=None, name_test=True, v
     print(f"tablestack(vars={vars}, df, by={[by] if by else None}, "
           f"prevalence={prevalence}, percent={percent}, name_test={name_test}, vars_to_factor={vars_to_factor})")
     
-    py_output = tablestack(
+    py_output = table_stack(
         vars, 
         df, 
         by=[by] if by else None,

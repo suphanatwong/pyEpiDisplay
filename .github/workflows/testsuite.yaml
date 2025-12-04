@@ -41,17 +41,33 @@ jobs:
             exit 1;
           fi
 
-      - name: Install
-        run: pip install --no-deps .
+      # -------------------------------------------------
+      # ADD: Install R + epiDisplay
+      # -------------------------------------------------
+      - name: Install R
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y r-base r-base-dev
+
+      - name: Install R package epiDisplay
+        run: |
+          Rscript -e "install.packages('epiDisplay', repos='https://cloud.r-project.org')"
+      # -------------------------------------------------
+
 
       - name: Install
         run: pip install --no-deps .
 
-      # - name: Install Ruff
-      #   run: pip install ruff
+      - name: Install
+        run: pip install --no-deps .
 
-      # - name: Lint with Ruff
-      #   run: ruff check
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Lint with Ruff
+        run: ruff check
+        continue-on-error: true
+
       - name: Install pytest-cov
         run: pip install pytest-cov
         
