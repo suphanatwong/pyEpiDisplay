@@ -26,7 +26,7 @@ def test_logistic_display_smoke():
     reviewer: suphanatwong
     category: one shot test
     """
-def test_one_shot():
+def test_logistic_display_one_shot():
     logistic_display('nausea ~ beefcurry + saltegg', df)
 
 # edge test
