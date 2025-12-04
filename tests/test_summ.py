@@ -20,8 +20,6 @@ def test_one_shot():
 
 
 
-
-
 def test_smoke():
     """
     author: Marthin
