@@ -1,12 +1,12 @@
-import pandas as pd
+"""
+This is docstring for test_tab1.py
+"""
+
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pytest
 from pyepidisplay.data import data
 from pyepidisplay.tab1 import tab1
 
-#outbreak = pd.read_csv("/Users/Joey/Downloads/FallQuarter/CSE583/pyEpiDisplay/src/pyepidisplay/datasets/Outbreak.csv")
 outbreak = data("Outbreak")
 
 def test_smoke():
@@ -16,7 +16,6 @@ def test_smoke():
     category: smoke test
     """
     tab1("age", outbreak)
-    return
 
 def check_output_type():
     """
@@ -24,8 +23,7 @@ def check_output_type():
     reviewer: Marthin
     category: one-shot test
     """
-    type(tab1("age", outbreak)) 
-    return
+    type(tab1("age", outbreak))
 
 def check_column_number():
     """
@@ -33,8 +31,7 @@ def check_column_number():
     reviewer: Marthin
     category: one-shot test
     """
-    tab1("age", outbreak).shape[1] 
-    return
+    print(tab1("age", outbreak).shape[1])
 
 def valid_input_1():
     """
@@ -44,7 +41,6 @@ def valid_input_1():
     """
     with pytest.raises(ValueError, match ="Column name must be a string."):
         tab1(3, outbreak)
-    return
 
 def valid_input_2():
     """
@@ -54,7 +50,6 @@ def valid_input_2():
     """
     with pytest.raises(ValueError, match ="Input data must be a pandas DataFrame." ):
         tab1("age", outbreak)
-    return
 
 def column_exists():
     """
@@ -64,7 +59,6 @@ def column_exists():
     """
     with pytest.raises(ValueError, match = "Column is not found in DataFrame."):
         tab1("region", outbreak)
-    return
 
 def check_null_value():
     """
@@ -74,7 +68,6 @@ def check_null_value():
     """
     with pytest.raises(ValueError, match = "Column contains NA values."):
         tab1("onset", outbreak)
-    return
 
 def test_column_na():
     """
@@ -82,7 +75,6 @@ def test_column_na():
     """
     with pytest.raises(ValueError, match = "Column contains NA values."):
         tab1("onset", outbreak)
-    return
 
 def test_tab1_pattern():
     """
@@ -93,9 +85,8 @@ def test_tab1_pattern():
     result = tab1("age", outbreak)
 
     # Cumulative Percent must end at ~100 ----
-    np.testing.assert_almost_equal(tab1("age", outbreak).iloc[-1]["Cumulative Percent"], 100.0, decimal=1)
+    x = tab1("age", outbreak).iloc[-1]["Cumulative Percent"]
+    np.testing.assert_almost_equal(x, 100.0, decimal=1)
 
     # Cumulative Percent must be non-decreasing ----
     assert result["Cumulative Percent"].is_monotonic_increasing
-
-    return
