@@ -28,6 +28,12 @@ Need: Direct, familiar translations of key R functions to maintain workflow cont
 
 Value: Offers equivalent syntax for displaying regression models (logistic_display(), regress_display()) and manipulating data (table_stack()), reducing the overhead of adopting a new language for common epidemiological work.
 
+- Experienced Epidemiologists & Data Scientist
+
+Need: A reliable, standardized package to integrate classic metrics into complex, novel data workflows (e.g., genomics, imaging, text analysis).
+
+Value: Serves as the essential epidemiological core within the Python ecosystem, allowing experts to seamlessly combine robust statistical measures (e.g., ORs from logistic_display()) with advanced machine learning libraries, using data() to load test sets easily.
+
 ## Translated Functionalities
 * logistic_display()
   * author: Cat Kim
