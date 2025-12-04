@@ -8,6 +8,16 @@ from pyepidisplay.data import data
 from pyepidisplay.table_stack import table_stack
 import subprocess
 df = data("Outbreak")
+
+def smoke_test():
+    result = table_stack(df=df, vars=[' sex', 'nausea'], by=['beefcurry'])  
+    return result
+
+def one_shot_test():
+    result = table_stack(
+        vars=['sex','nausea'])
+    assert result is not None
+
 def run_r_tablestack(vars, by=None, prevalence=None, percent=None, name_test=None, vars_to_factor=None):
     # Adjust Python numeric indices (0-based) to R (1-based)
     vars_r_list = [v+1 if isinstance(v, int) else v for v in vars]

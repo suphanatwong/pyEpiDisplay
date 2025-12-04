@@ -42,5 +42,9 @@ include-package-data = true
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.ruff]
+exclude = ["tests"]
+
+
 [tool.setuptools.package-data]
 "pyepidisplay.datasets" = ["*.csv"]
