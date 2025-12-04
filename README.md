@@ -28,6 +28,10 @@ To install the package,
   * author: Suphanat (AT) Wongsanuphat
 * table_stack
   * author: Suphanat (AT) Wongsanuphat
+* ci_prop
+  * author: Anna Kroening
+* ci_mean
+  * author: Anna Kroening
 
 ## Test Functions
 * test_logistic_display()
@@ -38,7 +42,11 @@ To install the package,
   * author: Marthin Mandig
 * test_summ
   * author: Marthin Mandig
-* test_data()
-  * author: Suphanat (AT) Wongsanuphat
+* test_ci_mean
+  * author: Anna Kroening
+* test_ci_prop
+  * author: Anna Kroening
 * test_table_stack
+  * author: Suphanat (AT) Wongsanuphat
+* test_data()
   * author: Suphanat (AT) Wongsanuphat
