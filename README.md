@@ -17,11 +17,13 @@ To install the package,
 
 ## Audience
  - Students & Public Health Trainees
+   
 Need: Quick, accessible functions for core analytical tasks in a Python environment.
 
 Value: Provides pre-built, easy-to-use functions for essential calculations: ci_prop(), ci_mean(), crosstab_function(), and summ_function(). This accelerates the learning curve by focusing on interpretation rather than complex coding.
 
 - R-to-Python Transitioners
+  
 Need: Direct, familiar translations of key R functions to maintain workflow continuity during the transition.
 
 Value: Offers equivalent syntax for displaying regression models (logistic_display(), regress_display()) and manipulating data (table_stack()), reducing the overhead of adopting a new language for common epidemiological work.
