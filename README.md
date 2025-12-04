@@ -15,6 +15,11 @@ The intended audience of our project ranges from epidemiology students to expert
 
 To install the package, 
 
+## Audience
+# Students & Public Health Trainees
+Need: Quick, accessible functions for core analytical tasks in a Python environment.
+Value: Provides pre-built, easy-to-use functions for essential calculations: ci_prop(), ci_mean(), crosstab_function(), and summ_function(). This accelerates the learning curve by focusing on interpretation rather than complex coding.
+
 ## Translated Functionalities
 * logistic_display()
   * author: Cat Kim
