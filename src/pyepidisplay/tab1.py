@@ -1,26 +1,26 @@
+"""
+Docstring for pyepidisplay.tab1
+"""
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 def tab1(column, df):
-    if type(column) is not str:
+    """
+    Docstring for tab1
+    
+    :param column: Description
+    :param df: Description
+    """
+    if not isinstance(column, str):
         raise ValueError("Column name must be a string.")
-    else:
-        pass
-    if type(df) is not pd.DataFrame:
+    if not isinstance(df, pd.DataFrame):
         raise ValueError("Input data must be a pandas DataFrame.")
-    else:
-        pass
     if column not in df.columns:
         raise ValueError("Column is not found in DataFrame.")
-    else:
-        pass
     for i in df[column]:
         if pd.isna(i):
             raise ValueError("Column contains NA values.")
-        else:
-            pass
 
     df_col = df[column].value_counts(dropna=False).sort_index()
     df_col_1 = df_col.reset_index(column)
@@ -40,5 +40,3 @@ def tab1(column, df):
     plt.show()
 
     return df_col_1
-
-# need to test, NA, invalid input, adjustable parameters of plot 
