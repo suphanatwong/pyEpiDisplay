@@ -1,3 +1,7 @@
+ HEAD
+src/pyepidisplay.egg-info/
+src/pyepidisplay.egg-info/
+=======
 .DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -215,3 +219,4 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+ 652209b8296633b04053b9d66e64f9138e43e1fa

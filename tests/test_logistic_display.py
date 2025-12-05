@@ -9,10 +9,9 @@ import pandas as pd
 df=data("Outbreak")
 
 # Smoke Test: check to see if result seems reasonable
-#try to test on data that looks different, write a variety of tests rather than make same test for different datasets, TA prefers to see diff types of tests
 """
     author: scatherinekim
-    reviewer: 
+    reviewer: suphanatwong
     category: smoke test
     """
 def test_logistic_display_smoke():
@@ -21,26 +20,21 @@ def test_logistic_display_smoke():
     assert isinstance(df_results, pd.DataFrame)
     assert not df_results.empty
 
-# Run smoke test and print results
-#df_results = test_logistic_display_smoke(df)
-#print("this is a smoke test\n", test_logistic_display_smoke(df))
-
 # One shot test: check to see if code crashes
 """
     author: scatherinekim
-    reviewer: 
+    reviewer: suphanatwong
     category: one shot test
     """
-def test_one_shot():
+def test_logistic_display_one_shot():
     logistic_display('nausea ~ beefcurry + saltegg', df)
-
 
 # edge test
 
 #edge case 1: empty dataframe
 """
     author: scatherinekim
-    reviewer: 
+    reviewer: suphanatwong
     category: edge test 1
     """
 def test_logistic_display_empty_df():
@@ -51,7 +45,7 @@ def test_logistic_display_empty_df():
 #edge case 2: predictor column is missing
         """
     author: scatherinekim
-    reviewer: 
+    reviewer: suphanatwong
     category: edge test 2
     """
 def test_logistic_display_missing_predictor():
@@ -61,7 +55,7 @@ def test_logistic_display_missing_predictor():
 #edge case 3: outcome not binary while logistic regression requires binary
         """
     author: scatherinekim
-    reviewer: 
+    reviewer: suphanatwong
     category: edge test 3
     """
 def test_logistic_display_nonbinary_outcome():
@@ -73,7 +67,7 @@ def test_logistic_display_nonbinary_outcome():
 #pattern test: give known pattern to give known results
 """
 author: scatherinekim
-reviewer:
+reviewer: suphanatwong
 category: pattern test
 """      
 def test_logistic_display_pattern():
@@ -97,4 +91,3 @@ def test_logistic_display_pattern():
         assert True
     except Exception as e:
         print(e)
-

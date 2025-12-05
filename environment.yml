@@ -11,3 +11,6 @@ dependencies:
   - pytest
   - pip
   - rpy2
+  - scikit-learn
+  - pkgutil
+  - importlib
