@@ -10,7 +10,7 @@ import subprocess
 df = data("Outbreak")
 
 def smoke_test():
-    result = table_stack(df=df, vars=['sex', 'nausea'], by=['beefcurry'])  
+    result = table_stack(df, vars=['sex', 'nausea'], by=['beefcurry'])  
     return result
 
 def one_shot_test():
@@ -72,8 +72,8 @@ def compare_py_r(vars, by=None, prevalence=None, percent=None, name_test=True, v
           f"prevalence={prevalence}, percent={percent}, name_test={name_test}, vars_to_factor={vars_to_factor})")
     
     py_output = table_stack(
-        vars, 
         df, 
+        vars, 
         by=[by] if by else None,
         prevalence=prevalence,
         percent=percent,

@@ -42,7 +42,7 @@ class TableStackResult:
         return str(self.results)
 
 
-def table_stack(vars, dataFrame, minlevel="auto", maxlevel="auto", count=True,
+def table_stack(dataFrame,vars, minlevel="auto", maxlevel="auto", count=True,
                 na_rm=False, means=True, medians=False, sds=True, decimal=1,
                 total=True, var_labels=True, var_labels_trunc=150,
                 reverse=False, vars_to_reverse=None, by=None, vars_to_factor=None,
@@ -54,10 +54,10 @@ def table_stack(vars, dataFrame, minlevel="auto", maxlevel="auto", count=True,
 
     Parameters
     ----------
-    vars : list or range
-        Vector of column indices or names in the data frame
     dataFrame : pd.DataFrame
         Source data frame of the variables
+    vars : list or range
+        Vector of column indices or names in the data frame
     minlevel : str or numeric
         Possible minimum value of items (default: "auto")
     maxlevel : str or numeric
