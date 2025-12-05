@@ -2,6 +2,7 @@ name: pyepidisplay
 channels:
   - conda-forge
 dependencies:
+  - python=3.12
   - numpy
   - matplotlib
   - seaborn
@@ -10,7 +11,6 @@ dependencies:
   - pyreadr
   - pytest
   - pip
-  - rpy2
   - scikit-learn
-  - pkgutil
-  - importlib
+  - r-base
+  - rpy2
