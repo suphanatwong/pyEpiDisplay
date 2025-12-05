@@ -1,26 +1,25 @@
 """
 Module `tabpct` provides a Python version of R's epiDisplay::tabpct function.
 It computes cross-tabulations, row/column/overall percentages, and optionally
-plots a mosaic-like diagram with pastel colors using Matplotlib.
+plots a mosaic diagram with pastel colors.
 """
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-import numpy as np
+from statsmodels.graphics.mosaicplot import mosaic
 
 def tabpct(row, column, decimal=1, percent="both", graph=True,
            main="auto", xlab="auto", ylab="auto"):
     """
-    R-style table with row %, column %, and mosaic-like plot.
+    R-style table with row %, column %, and mosaic plot.
     
     Args:
         row, column: pd.Series or list-like
         decimal: number of decimals for percentages
         percent: "row", "col", "both"
-        graph: True/False for plot
+        graph: True/False for mosaic plot
         main, xlab, ylab: plot labels
-    
     Returns:
         dict with numeric row and column percentages
     """
@@ -80,13 +79,9 @@ def tabpct(row, column, decimal=1, percent="both", graph=True,
         print(col_display)
         print()
 
-    # ---------------- Mosaic-like plot (Matplotlib stacked bar) ---------------
+# ---------------- Mosaic-like plot (Matplotlib stacked bar) ---------------
     if graph:
-        tab_plot = tab.copy()
-        tab_plot.index = tab_plot.index.fillna("missing")
-        tab_plot.columns = tab_plot.columns.fillna("missing")
-        tab_plot = tab_plot.iloc[::-1]  # reverse row order
-
+        tab_plot = tab.copy().fillna(0)
         categories = tab_plot.index.tolist()
         subcats = tab_plot.columns.tolist()
         counts = tab_plot.values
@@ -97,23 +92,25 @@ def tabpct(row, column, decimal=1, percent="both", graph=True,
         cmap = list(mcolors.TABLEAU_COLORS.values())
         colors = [cmap[i % len(cmap)] for i in range(len(subcats))]
 
-        bottom = np.zeros(len(categories))
+        bottom = [0] * len(categories)
         for i, col in enumerate(subcats):
             ax.bar(categories, counts[:, i], bottom=bottom, color=colors[i], label=str(col))
-            bottom += counts[:, i]
+            # optionally add percentages inside bars
+            for j, val in enumerate(counts[:, i]):
+                if val > 0:
+                    if percent == "row":
+                        pct = val / counts[j].sum() * 100
+                    elif percent == "col":
+                        pct = val / counts[:, i].sum() * 100
+                    else:
+                        pct = val / counts.sum() * 100
+                    ax.text(j, bottom[j] + val/2, f"{pct:.1f}%", ha='center', va='center', fontsize=10)
+            bottom = [bottom[j] + counts[j, i] for j in range(len(bottom))]
 
-        # labels
-        ax.set_xlabel(xlab if xlab != "auto" else column.name, fontsize=14)
-        ax.set_ylabel(ylab if ylab != "auto" else row.name, fontsize=14)
-        if main == "auto":
-            title_text = f"Distribution of {column.name} by {row.name}"
-            if len(title_text) > 45:
-                title_text = f"Distribution of {column.name}\nby {row.name}"
-        else:
-            title_text = main
-        ax.set_title(title_text, fontsize=16, weight='bold')
+        ax.set_xlabel(xlab if xlab != "auto" else column.name)
+        ax.set_ylabel(ylab if ylab != "auto" else row.name)
+        ax.set_title(main if main != "auto" else f"{column.name} by {row.name}")
         ax.legend(title="Columns")
-        plt.xticks(rotation=0, fontsize=12)
         plt.show()
 
     # ---------------- Numeric percentages ----------------
