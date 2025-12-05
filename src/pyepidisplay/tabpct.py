@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from statsmodels.graphics.mosaicplot import mosaic
-
+import numpy as np
 def tabpct(row, column, decimal=1, percent="both", graph=True,
            main="auto", xlab="auto", ylab="auto"):
     """
@@ -79,76 +79,53 @@ def tabpct(row, column, decimal=1, percent="both", graph=True,
         print(col_display)
         print()
 
-      # --- Plotting Logic controlled by 'graph' argument ---
+# --- Plotting Logic ---
     if graph:
-        # --- Setup and Preprocessing (Moved inside the graph block) ---
         tab_plot = tab.copy()
         tab_plot.index = tab_plot.index.fillna("missing")
         tab_plot.columns = tab_plot.columns.fillna("missing")
-        
-        # We will reverse the row order for consistent stacking (bottom-to-top)
-        tab_plot = tab_plot.iloc[::-1]
+        tab_plot = tab_plot.iloc[::-1]  # reverse row order
 
-        # --- Determine Colors (Similar to original snippet) ---
+        # Determine colors
         unique_rows = tab_plot.index.tolist()
         if len(unique_rows) == 2:
-            # pastel green for the top element (unique_rows[0]), pastel red for bottom (unique_rows[1])
             row_colors = {str(unique_rows[0]): "#B3FFB3",
                           str(unique_rows[1]): "#FFB3B3"}
         else:
-            # generate pastel colors for more than 2 groups
             cmap_list = list(mcolors.TABLEAU_COLORS.values())
             row_colors = {str(r): cmap_list[i % len(cmap_list)] for i, r in enumerate(unique_rows)}
 
-        # --- Plot Setup ---
         fig, ax = plt.subplots(figsize=(8, 6))
 
-        # Calculate percentages for labeling
+        # Calculate percentages
         if percent == "row":
-            percentage_df = tab_plot.apply(lambda x: x / x.sum() * 100, axis=1)
+            percentage_df = tab_plot.div(tab_plot.sum(axis=1), axis=0) * 100
         elif percent == "col":
-            # Normalize by column sum for column percentage
-            percentage_df = tab_plot.apply(lambda x: x / x.sum() * 100, axis=0)
-        else: # Total percent
-            percentage_df = tab_plot.apply(lambda x: x / tab_plot.values.sum() * 100)
+            percentage_df = tab_plot.div(tab_plot.sum(axis=0), axis=1) * 100
+        else:  # total
+            percentage_df = tab_plot / tab_plot.values.sum() * 100
 
-        # Base for stacking
         bottom = np.zeros(len(tab_plot.columns))
 
-        # Iterate through rows to create the stacks
+        # Plot each row
         for i, r_val_raw in enumerate(tab_plot.index):
             r_val = str(r_val_raw)
             counts = tab_plot.loc[r_val_raw].values
-            
-            # Plot the bar for the current row
-            bars = ax.bar(tab_plot.columns, counts, bottom=bottom, 
+            bars = ax.bar(range(len(tab_plot.columns)), counts, bottom=bottom,
                           label=r_val, color=row_colors.get(r_val, 'gray'))
 
-            # Add labels (count and percentage) to each segment
-            for bar, count, pct in zip(bars, counts, percentage_df.loc[r_val_raw].values):
-                if count > 0: # Only label non-zero segments
-                    height = bar.get_height()
-                    
-                    # Find the index of the current column in the columns list
-                    col_index = list(tab_plot.columns).index(bar.get_x())
-                    
-                    # Calculate the center of the segment for vertical positioning
-                    y_pos = bottom[col_index] + height / 2
+            # Add labels
+            for col_idx, (bar, count, pct) in enumerate(zip(bars, counts, percentage_df.loc[r_val_raw].values)):
+                if count > 0:
+                    y_pos = bottom[col_idx] + count / 2
+                    label_text = f"{int(count)}\n({pct:.{decimal}f}%)"
+                    ax.text(bar.get_x() + bar.get_width()/2, y_pos,
+                            label_text, ha='center', va='center',
+                            fontsize=10, color='black', weight='bold')
 
-                    # Text format: count\n(percent%)
-                    label_text = f"{int(count)}\n({pct:.1f}%)"
-
-                    ax.text(bar.get_x() + bar.get_width() / 2, y_pos, 
-                            label_text, 
-                            ha='center', va='center', 
-                            fontsize=10, 
-                            color='black', 
-                            weight='bold')
-            
-            # Update the base for the next stack
             bottom += counts
 
-        # --- Title and Labels (Similar to original snippet) ---
+        # Labels & Title
         if main == "auto":
             title_text = f"Distribution of {column.name} by {row.name}"
             if len(title_text) > 45:
@@ -158,11 +135,10 @@ def tabpct(row, column, decimal=1, percent="both", graph=True,
 
         ax.set_title(title_text, fontsize=16, weight='bold')
         ax.set_xlabel(xlab if xlab != "auto" else column.name, fontsize=14)
-        ax.set_ylabel("Count", fontsize=14)
-        ax.tick_params(axis='x', labelsize=12)
+        ax.set_ylabel(ylab if ylab != "auto" else "Count", fontsize=14)
+        ax.set_xticks(range(len(tab_plot.columns)))
+        ax.set_xticklabels(tab_plot.columns, rotation=0, fontsize=12)
         ax.tick_params(axis='y', labelsize=12)
-        
-        # Add a legend for the row variable
         ax.legend(title=row.name, loc='upper left', bbox_to_anchor=(1, 1))
 
         plt.tight_layout()

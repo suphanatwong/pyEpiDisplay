@@ -214,3 +214,4 @@ def compare_py_r_tabpct_graph_col(df):
 
     print(f"\nMATCH: {match}\n")
     return match
+tabpct(df["sex"], df["beefcurry"], graph=True, percent="col")
