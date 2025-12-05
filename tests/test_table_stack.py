@@ -72,8 +72,8 @@ def compare_py_r(vars, by=None, prevalence=None, percent=None, name_test=True, v
           f"prevalence={prevalence}, percent={percent}, name_test={name_test}, vars_to_factor={vars_to_factor})")
     
     py_output = table_stack(
-        df, 
         vars, 
+        df, 
         by=[by] if by else None,
         prevalence=prevalence,
         percent=percent,

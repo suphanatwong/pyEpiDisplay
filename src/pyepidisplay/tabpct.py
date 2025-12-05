@@ -1,25 +1,26 @@
 """
 Module `tabpct` provides a Python version of R's epiDisplay::tabpct function.
 It computes cross-tabulations, row/column/overall percentages, and optionally
-plots a mosaic diagram with pastel colors.
+plots a mosaic-like diagram with pastel colors using Matplotlib.
 """
 
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-from statsmodels.graphics.mosaicplot import mosaic
+import numpy as np
 
 def tabpct(row, column, decimal=1, percent="both", graph=True,
            main="auto", xlab="auto", ylab="auto"):
     """
-    R-style table with row %, column %, and mosaic plot.
+    R-style table with row %, column %, and mosaic-like plot.
     
     Args:
         row, column: pd.Series or list-like
         decimal: number of decimals for percentages
         percent: "row", "col", "both"
-        graph: True/False for mosaic plot
+        graph: True/False for plot
         main, xlab, ylab: plot labels
+    
     Returns:
         dict with numeric row and column percentages
     """
@@ -79,64 +80,42 @@ def tabpct(row, column, decimal=1, percent="both", graph=True,
         print(col_display)
         print()
 
-    # ---------------- Mosaic plot ---------------
+    # ---------------- Mosaic-like plot (Matplotlib stacked bar) ---------------
     if graph:
         tab_plot = tab.copy()
         tab_plot.index = tab_plot.index.fillna("missing")
         tab_plot.columns = tab_plot.columns.fillna("missing")
-        # Reverse row order so 0 goes up, 1 goes down
-        tab_plot = tab_plot.iloc[::-1]
+        tab_plot = tab_plot.iloc[::-1]  # reverse row order
 
-        # Convert to string for mosaic
-        data_dict = {(str(c), str(r)): tab_plot.loc[r, c]
-                    for r in tab_plot.index
-                    for c in tab_plot.columns}
+        categories = tab_plot.index.tolist()
+        subcats = tab_plot.columns.tolist()
+        counts = tab_plot.values
 
-        # Colors
-        unique_rows = tab_plot.index.tolist()
-        if len(unique_rows) == 2:
-            # pastel red for bottom (0), pastel green for top (1)
-            row_colors = {str(unique_rows[0]): "#FFB3B3",  # pastel red
-                        str(unique_rows[1]): "#B3FFB3"}  # pastel green
-        else:
-            # generate pastel colors for more than 2 groups
-            cmap = list(mcolors.TABLEAU_COLORS.values())
-            row_colors = {str(r): cmap[i % len(cmap)] for i, r in enumerate(unique_rows)}
+        fig, ax = plt.subplots(figsize=(8, 6))
 
-        # Labelizer with larger font for counts
-        def labelizer(key):
-            c_val, r_val = key  # SWAP order
-            r_val_int = int(r_val) if r_val.isdigit() else r_val
-            c_val_int = int(c_val) if c_val.isdigit() else c_val
-            count = tab_plot.at[r_val_int, c_val_int]
-            if percent == "row":
-                pct = (count / tab_plot.loc[r_val_int].sum()) * 100
-            elif percent == "col":
-                pct = (count / tab_plot[c_val_int].sum()) * 100
-            else:
-                pct = (count / tab_plot.values.sum()) * 100
-            return f"{count}\n({pct:.1f}%)"
+        # pastel colors
+        cmap = list(mcolors.TABLEAU_COLORS.values())
+        colors = [cmap[i % len(cmap)] for i in range(len(subcats))]
 
-        # Plot title
+        bottom = np.zeros(len(categories))
+        for i, col in enumerate(subcats):
+            ax.bar(categories, counts[:, i], bottom=bottom, color=colors[i], label=str(col))
+            bottom += counts[:, i]
+
+        # labels
+        ax.set_xlabel(xlab if xlab != "auto" else column.name, fontsize=14)
+        ax.set_ylabel(ylab if ylab != "auto" else row.name, fontsize=14)
         if main == "auto":
             title_text = f"Distribution of {column.name} by {row.name}"
             if len(title_text) > 45:
                 title_text = f"Distribution of {column.name}\nby {row.name}"
         else:
             title_text = main
-
-        plt.figure(figsize=(8, 6))
-        mosaic(data_dict,
-            labelizer=labelizer,
-            properties=lambda key: {'facecolor': row_colors[key[1]]})
-        # Set larger fonts
-        plt.title(title_text, fontsize=16, weight='bold')
-        plt.xlabel(xlab if xlab != "auto" else column.name, fontsize=14)
-        plt.ylabel(ylab if ylab != "auto" else row.name, fontsize=14)
-        plt.xticks(fontsize=12)
-        #plt.yticks(fontsize=12)
-        plt.gca().yaxis.set_visible(True)
+        ax.set_title(title_text, fontsize=16, weight='bold')
+        ax.legend(title="Columns")
+        plt.xticks(rotation=0, fontsize=12)
         plt.show()
+
     # ---------------- Numeric percentages ----------------
     cpercent_num = tab.div(tab.sum(axis=0), axis=1) * 100
     rpercent_num = tab.div(tab.sum(axis=1), axis=0) * 100
