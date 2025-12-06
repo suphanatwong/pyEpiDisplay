@@ -51,6 +51,8 @@ Value: Serves as the essential epidemiological core within the Python ecosystem,
   * author: Anna Kroening
 * ci_mean
   * author: Anna Kroening
+* tab1
+  * author: Jiayi Ding
 
 ## Test Functions
 * test_logistic_display()
@@ -69,3 +71,5 @@ Value: Serves as the essential epidemiological core within the Python ecosystem,
   * author: Suphanat (AT) Wongsanuphat
 * test_data()
   * author: Suphanat (AT) Wongsanuphat
+* test_tab1()
+  * author: Jiayi Ding
