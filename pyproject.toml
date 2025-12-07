@@ -11,6 +11,7 @@ authors = [
     {name = "Suphanat Wongsanuphat", email = "suphanat@uw.edu"},
     {name = "Cat Kim", email = "suyunk@uw.edu"},
     {name = "Jiayi Ding", email = "jiayid03@uw.edu"},
+    {name = "Marthin Mandig", email = "m4rth1n@uw.edu"}
 ]
 readme = "README.md"
 license = {file = "LICENSE"}
