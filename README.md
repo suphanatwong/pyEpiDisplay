@@ -13,7 +13,14 @@ Epidemiological data analysis increasingly needs to handle novel data sources su
 
 The intended audience of our project ranges from epidemiology students to experts interested in performing data analysis and visualization tasks in Python.
 
-To install the package, 
+To install the package, run the following commands in a terminal:
+1) sudo apt update
+2) sudo apt install -y r-base r-base-dev libnlopt-dev liblapack-dev libblas-dev     libpcre2-dev libbz2-dev liblzma-dev libicu-dev libssl-dev libtirpc-dev     libreadline-dev gfortran gcc g++
+3) conda create -n [environment name] python=3.10 -y
+4) conda activate [environment name]
+5) pip install pandas numpy scipy matplotlib seaborn scikit-learn
+6) pip install git+https://github.com/suphanatwong/pyEpiDisplay.git@main
+
 
 ## Audience
  - Students & Public Health Trainees
