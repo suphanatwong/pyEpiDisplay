@@ -48,7 +48,6 @@ Thaikruea L, Pataraarechachai J, Savanpunyalert P, Naluponjiragul U. An unusual 
 * IUD trial admission data (IudAdmit): Data concerning the admission of cases for IUD (Intrauterine Device) trials.
 * IUD trial discontinuation data (IudDiscontinue): Data on the discontinuation of IUD trial cases.
 * IUD trial follow-up data (IudFollowup): Data on the follow-up cases of IUD trials.
-* Montana: A dataset from a cohort study focused on exposure to arsenic from industry and deaths from respiratory diseases.
 * Oswego: A dataset derived from an outbreak of food poisoning that occurred in the US.
 * Sleepiness: Listed as a dataset in the documentation content.
 * Timing exercise (Timing): A dataset used for exercises, containing variables related to the timing of daily activities like hour/minute of going to bed, waking up, and arrival at a workshop.
@@ -76,6 +75,7 @@ Publication/ Report Data Visualization
 Inferential Analytics 
 Logistic regression with OR and 95% confidence interval
 Linear regression
+
 
 
 
