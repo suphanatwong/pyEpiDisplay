@@ -39,12 +39,11 @@ Issues = "https://github.com/suphanatwong/pyEpiDisplay/issues"
 [tool.setuptools]
 include-package-data = true
 
+[tool.setuptools.package-data]
+"pyepidisplay.datasets" = ["*.csv"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.ruff] 
 exclude = ["tests","examples","docs"]
-
-
-[tool.setuptools.package-data]
-"pyepidisplay.datasets" = ["*.csv"]
