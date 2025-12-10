@@ -37,57 +37,34 @@ Thaikruea L, Pataraarechachai J, Savanpunyalert P, Naluponjiragul U. An unusual 
 
 ## Other Built-in Data Sources
 
-*Age at marriage (Marryage): A dataset containing data on the age at first marriage of attendants at a workshop in 1997. It has 27 observations on 7 variables.
+* Age at marriage (Marryage): A dataset containing data on the age at first marriage of attendants at a workshop in 1997. It has 27 observations on 7 variables.
+* Air Pollution (AirPollution): A dataset on air pollution and deaths in the UK. It specifically covers deaths in London from December 1st to 15th, 1952.
+* ANC Table (ANCtable): A dataset representing a table on the effect of a new Antenatal Care (ANC) method on mortality.
+* ANC data (ANCdata): A dataset recording high-risk pregnant women in a trial on new versus old ANC methods in two clinics, with the outcome being perinatal mortality. It contains 755 observations on 3 variables.
+* Attitudes dataset (Attitudes): Data from an attitude survey among hospital staff, focused on attitudes related to services. It includes 136 observations on 7 variables.
+* Bangladesh Fertility Survey (Bang): A subsample from the 1988 Bangladesh Fertility Survey, consisting of 1934 women grouped in 60 districts, with 7 variables.
+* Blood pressure (BP): Records of 100 adults from a small cross-sectional survey in 2001, investigating blood pressure and its determinants in a community.
+* Cancer survival (Compaq): Data used for checking the survival difference between cancer patients in private and public hospitals. It includes 1064 observations on 7 variables.
+* Data for cleaning (Planning): Data from clients of a family planning clinic, intended for practicing data cleaning, labelling, and recoding. It has 251 observations on 11 variables.
+* DHF99: A dataset provided for an exercise on predictors for mosquito larva infestation.
+* Ectopic pregnancy (Ectopic): Data from a case-control study investigating history of abortion as a risk factor for ectopic pregnancy. It has 723 observations on 4 variables and includes a case series and two control groups.
+* Familydata: A dataset of a hypothetical family, often used for instructional purposes.
+* Hakimi's data (Hakimi): A dataset related to the effect of training personnel on neonatal mortality.
+* Hookworm 1993 (HW93): Data from a study on hookworm prevalence and intensity in 1993.
+* Hookworm and blood loss: Listed as a dataset in the documentation content.
+* IUD trial admission data (IudAdmit): Data concerning the admission of cases for IUD (Intrauterine Device) trials.
+* IUD trial discontinuation data (IudDiscontinue): Data on the discontinuation of IUD trial cases.
+* IUD trial follow-up data (IudFollowup): Data on the follow-up cases of IUD trials.
+* Montana: A dataset from a cohort study focused on exposure to arsenic from industry and deaths from respiratory diseases.
+* Oswego: A dataset derived from an outbreak of food poisoning that occurred in the US.
+* Sleepiness: Listed as a dataset in the documentation content.
+* Timing exercise (Timing): A dataset used for exercises, containing variables related to the timing of daily activities like hour/minute of going to bed, waking up, and arrival at a workshop.
+* Tooth decay (Decay): A dataset on tooth decay and mutan streptococci, examining the relationship between the bacteria and the presence of decayed teeth. It contains 436 observations on 2 variables.
+* Voluntary counselling and testing (VCT): A dataset on attitudes toward VCT, containing records of 200 women working at a tourist destination community.
+* Xerophthalmia and respiratory infection: Data from an Indonesian study on vitamin A deficiency and the risk of respiratory infection, adopted from Diggle et al., Analysis of Longitudinal Data.
 
-*Air Pollution (AirPollution): A dataset on air pollution and deaths in the UK. It specifically covers deaths in London from December 1st to 15th, 1952.
+<img width="468" height="638" alt="image" src="https://github.com/user-attachments/assets/adb4252d-a829-4e72-a343-290504982ec4" />
 
-*ANC Table (ANCtable): A dataset representing a table on the effect of a new Antenatal Care (ANC) method on mortality.
-
-*ANC data (ANCdata): A dataset recording high-risk pregnant women in a trial on new versus old ANC methods in two clinics, with the outcome being perinatal mortality. It contains 755 observations on 3 variables.
-
-*Attitudes dataset (Attitudes): Data from an attitude survey among hospital staff, focused on attitudes related to services. It includes 136 observations on 7 variables.
-
-*Bangladesh Fertility Survey (Bang): A subsample from the 1988 Bangladesh Fertility Survey, consisting of 1934 women grouped in 60 districts, with 7 variables.
-
-*Blood pressure (BP): Records of 100 adults from a small cross-sectional survey in 2001, investigating blood pressure and its determinants in a community.
-
-*Cancer survival (Compaq): Data used for checking the survival difference between cancer patients in private and public hospitals. It includes 1064 observations on 7 variables.
-
-*Data for cleaning (Planning): Data from clients of a family planning clinic, intended for practicing data cleaning, labelling, and recoding. It has 251 observations on 11 variables.
-
-*DHF99: A dataset provided for an exercise on predictors for mosquito larva infestation.
-
-*Ectopic pregnancy (Ectopic): Data from a case-control study investigating history of abortion as a risk factor for ectopic pregnancy. It has 723 observations on 4 variables and includes a case series and two control groups.
-
-*Familydata: A dataset of a hypothetical family, often used for instructional purposes.
-
-*Hakimi's data (Hakimi): A dataset related to the effect of training personnel on neonatal mortality.
-
-*Hookworm 1993 (HW93): Data from a study on hookworm prevalence and intensity in 1993.
-
-*Hookworm and blood loss: Listed as a dataset in the documentation content.
-
-*IUD trial admission data (IudAdmit): Data concerning the admission of cases for IUD (Intrauterine Device) trials.
-
-*IUD trial discontinuation data (IudDiscontinue): Data on the discontinuation of IUD trial cases.
-
-*IUD trial follow-up data (IudFollowup): Data on the follow-up cases of IUD trials.
-
-*Montana: A dataset from a cohort study focused on exposure to arsenic from industry and deaths from respiratory diseases.
-
-*Oswego: A dataset derived from an outbreak of food poisoning that occurred in the US.
-
-*Outbreak investigation (Outbreak): Data from an outbreak of food poisoning on a sports day in Thailand in 1990.
-
-*Sleepiness: Listed as a dataset in the documentation content.
-
-*Timing exercise (Timing): A dataset used for exercises, containing variables related to the timing of daily activities like hour/minute of going to bed, waking up, and arrival at a workshop.
-
-*Tooth decay (Decay): A dataset on tooth decay and mutan streptococci, examining the relationship between the bacteria and the presence of decayed teeth. It contains 436 observations on 2 variables.
-
-*Voluntary counselling and testing (VCT): A dataset on attitudes toward VCT, containing records of 200 women working at a tourist destination community.
-
-*Xerophthalmia and respiratory infection: Data from an Indonesian study on vitamin A deficiency and the risk of respiratory infection, adopted from Diggle et al., Analysis of Longitudinal Data.
 
 ## Use cases. Describing at least two use cases. For each, describe: (a) the objective of the user interaction (e.g., withdraw money from an ATM); and (b) the expected interactions between the user and your system.
 Import external dataset 
@@ -109,6 +86,7 @@ Publication/ Report Data Visualization
 Inferential Analytics 
 Logistic regression with OR and 95% confidence interval
 Linear regression
+
 
 
 
