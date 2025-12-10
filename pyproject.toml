@@ -35,9 +35,7 @@ dependencies = [
 Homepage = "https://github.com/suphanatwong/pyEpiDisplay"
 Issues = "https://github.com/suphanatwong/pyEpiDisplay/issues"
 
-# ------------------------------------------------------------
-# REQUIRED FOR INCLUDING Outbreak.csv IN THE BUILT PACKAGE
-# ------------------------------------------------------------
+
 [tool.setuptools]
 include-package-data = true
 
