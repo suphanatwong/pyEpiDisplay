@@ -17,7 +17,7 @@ To install the package, run the following commands in a terminal:
 
 Mac:
 ```
-# please install in any environmen with Python and pip, otherwise create a new conda environment:
+# please install in any environment with Python and pip, otherwise create a new conda environment:
 conda create -n [a_funky_name] python 
 conda activate [a_funky_name]
 # then run: 
@@ -26,11 +26,10 @@ pip install git+https://github.com/suphanatwong/pyEpiDisplay.git@main
 
 Windows:
 ```
-sudo apt update
-sudo apt install -y r-base r-base-dev libnlopt-dev liblapack-dev libblas-dev     libpcre2-dev libbz2-dev liblzma-dev libicu-dev libssl-dev libtirpc-dev     libreadline-dev gfortran gcc g++
-conda create -n [environment name] python=3.10 -y
-conda activate [environment name]
-pip install pandas numpy scipy matplotlib seaborn scikit-learn statsmodels
+# please install in any environment with Python and pip, otherwise create a new conda environment:
+conda create -n [a_funky_name] python=3.10 -y
+conda activate [a_funky_name]
+# then run
 pip install git+https://github.com/suphanatwong/pyEpiDisplay.git@main
 ```
 
