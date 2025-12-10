@@ -15,4 +15,3 @@ dependencies:
   - r-base
   - rpy2
   - statsmodels
-
