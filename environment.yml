@@ -14,3 +14,4 @@ dependencies:
   - scikit-learn
   - r-base
   - rpy2
+  - statsmodels
