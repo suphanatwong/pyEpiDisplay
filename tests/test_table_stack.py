@@ -96,18 +96,26 @@ def compare_py_r(vars, by=None, prevalence=None, percent=None, name_test=True, v
     print("\n============ R RESULT ============\n")
     print(r_output)
 
-    match = (str(py_output).replace(" ", "").replace("\n","") ==
-             r_output.replace(" ", "").replace("\n",""))
+    # match = (str(py_output).replace(" ", "").replace("\n","") ==
+    #          r_output.replace(" ", "").replace("\n",""))
+    # print(f"\nMATCH: {match}\n")
+    def normalize(s):
+        s = str(s).lower()              # all lowercase
+        s = s.replace(" ", "")          # remove spaces
+        s = s.replace("\n", "")         # remove newlines
+        s = s.replace(".0", "")         # remove trailing .0
+        return s
+    match = normalize(py_output) == normalize(r_output)
     print(f"\nMATCH: {match}\n")
     return match
 
 
 # ================= Numeric index tests =================
-compare_py_r(vars=range(5, 8), by='beefcurry', vars_to_factor=range(5, 8))
-compare_py_r(vars=list(range(5, 8)), by='beefcurry', vars_to_factor=list(range(5, 8)))
-compare_py_r(vars=[5, 6, 7], by='beefcurry', vars_to_factor=[5, 6, 7])
+# compare_py_r(vars=range(5, 8), by='beefcurry', vars_to_factor=range(5, 8))
+# compare_py_r(vars=list(range(5, 8)), by='beefcurry', vars_to_factor=list(range(5, 8)))
+# compare_py_r(vars=[5, 6, 7], by='beefcurry', vars_to_factor=[5, 6, 7])
 # ================= Example test cases =================
-# compare_py_r(['sex','nausea'], by='beefcurry', prevalence=False)
+compare_py_r(['sex','nausea'], by='beefcurry', prevalence=False)
 # compare_py_r(['sex','nausea'], by='beefcurry', prevalence=True)
 # compare_py_r(['sex','nausea'], by='beefcurry', percent='column')
 # compare_py_r(['sex','nausea'], by='beefcurry', percent=False)

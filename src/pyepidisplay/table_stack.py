@@ -458,13 +458,13 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
             sample_row['Total'] = len(by1)
         if test:
             if name_test:
-                sample_row['Test'] = ''
-                sample_row['P-value'] = ''
+                sample_row['Test stat.'] = ''
+                sample_row['P value'] = ''
             else:
-                sample_row['P-value'] = ''
+                sample_row['P value'] = ''
 
         table_data.append(sample_row)
-        row_labels.append('N')
+        row_labels.append('Total')
 
     # Process each variable
     for i in selected:
@@ -519,10 +519,10 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
 
                 if test:
                     if name_test:
-                        prev_data['Test'] = test_method
-                        prev_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
+                        prev_data['Test stat.'] = test_method
+                        prev_data['P value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
                     else:
-                        prev_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
+                        prev_data['P value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2)
 
                 table_data.append(prev_data)
                 row_labels.append(f"{var_name} = {ct.index[1]}")
@@ -535,11 +535,11 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
                     header_data['Total'] = ''
                 if test:
                     if name_test:
-                        header_data['Test'] = test_method
-                        header_data['P-value'] = "< 0.001"\
+                        header_data['Test stat.'] = test_method
+                        header_data['P value'] = "< 0.001"\
                               if p_value < 0.001 else round(p_value, decimal + 2)
                     else:
-                        header_data['P-value'] = "< 0.001"\
+                        header_data['P value'] = "< 0.001"\
                               if p_value < 0.001 else round(p_value, decimal + 2)
 
                 table_data.append(header_data)
@@ -571,10 +571,10 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
 
                     if test:
                         if name_test:
-                            level_data['Test'] = ''
-                            level_data['P-value'] = ''
+                            level_data['Test stat.'] = ''
+                            level_data['P value'] = ''
                         else:
-                            level_data['P-value'] = ''
+                            level_data['P value'] = ''
 
                     table_data.append(level_data)
                     row_labels.append(f"  {level}")
@@ -616,10 +616,10 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
                 header_data['Total'] = ''
             if test:
                 if name_test:
-                    header_data['Test'] = test_method
-                    header_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
+                    header_data['Test stat.'] = test_method
+                    header_data['P value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
                 else:
-                    header_data['P-value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
+                    header_data['P value'] = "< 0.001" if p_value < 0.001 else round(p_value, decimal + 2) if p_value is not None else 'NA'
 
             table_data.append(header_data)
             row_labels.append(var_name)
@@ -642,10 +642,10 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
 
                 if test:
                     if name_test:
-                        stats_data['Test'] = ''
-                        stats_data['P-value'] = ''
+                        stats_data['Test stat.'] = ''
+                        stats_data['P value'] = ''
                     else:
-                        stats_data['P-value'] = ''
+                        stats_data['P value'] = ''
 
                 table_data.append(stats_data)
                 row_labels.append("  Median (IQR)")
@@ -667,10 +667,10 @@ def _table_stack_with_by(selected, dataFrame, by1, selected_iqr, selected_to_fac
 
                 if test:
                     if name_test:
-                        stats_data['Test'] = ''
-                        stats_data['P-value'] = ''
+                        stats_data['Test stat.'] = ''
+                        stats_data['P value'] = ''
                     else:
-                        stats_data['P-value'] = ''
+                        stats_data['P value'] = ''
 
                 table_data.append(stats_data)
                 row_labels.append("  Mean (SD)")
