@@ -7,7 +7,6 @@ plots a mosaic diagram with pastel colors.
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-from statsmodels.graphics.mosaicplot import mosaic
 import numpy as np
 def tabpct(row, column, decimal=1, percent="both", graph=True,
            main="auto", xlab="auto", ylab="auto"):
