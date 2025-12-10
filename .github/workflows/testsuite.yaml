@@ -58,9 +58,6 @@ jobs:
       - name: Install
         run: pip install --no-deps .
 
-      - name: Install
-        run: pip install --no-deps .
-
       - name: Install Ruff
         run: pip install ruff
 
