@@ -63,9 +63,6 @@ Thaikruea L, Pataraarechachai J, Savanpunyalert P, Naluponjiragul U. An unusual 
 * Voluntary counselling and testing (VCT): A dataset on attitudes toward VCT, containing records of 200 women working at a tourist destination community.
 * Xerophthalmia and respiratory infection: Data from an Indonesian study on vitamin A deficiency and the risk of respiratory infection, adopted from Diggle et al., Analysis of Longitudinal Data.
 
-<img width="468" height="638" alt="image" src="https://github.com/user-attachments/assets/adb4252d-a829-4e72-a343-290504982ec4" />
-
-
 ## Use cases. Describing at least two use cases. For each, describe: (a) the objective of the user interaction (e.g., withdraw money from an ATM); and (b) the expected interactions between the user and your system.
 Import external dataset 
 
@@ -86,6 +83,7 @@ Publication/ Report Data Visualization
 Inferential Analytics 
 Logistic regression with OR and 95% confidence interval
 Linear regression
+
 
 
 
