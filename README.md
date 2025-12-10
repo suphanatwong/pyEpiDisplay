@@ -16,7 +16,13 @@ The intended audience of our project ranges from epidemiology students to expert
 To install the package, run the following commands in a terminal:
 
 Mac:
-
+```
+# please install in any environmen with Python and pip, otherwise create a new conda environment:
+conda create -n [a_funky_name] python 
+conda activate [a_funky_name]
+# then run: 
+pip install git+https://github.com/suphanatwong/pyEpiDisplay.git@main
+```
 
 Windows:
 ```
