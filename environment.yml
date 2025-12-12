@@ -11,5 +11,7 @@ dependencies:
   - pyreadr
   - pytest
   - pip
+  - r-base
+  - rpy2
   - scikit-learn
   - statsmodels
